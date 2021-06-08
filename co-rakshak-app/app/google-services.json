@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "673719463263",
+    "firebase_url": "https://co-rakshak-dwaar-default-rtdb.firebaseio.com",
+    "project_id": "co-rakshak-dwaar",
+    "storage_bucket": "co-rakshak-dwaar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673719463263:android:48237a1b11e04991ba1aea",
+        "android_client_info": {
+          "package_name": "com.example.corakshak"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673719463263-u2lemnsgnf6mv9lnbkktss33pc0euhjc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8BUBbx362Flb_vYcH09O6O2hKPYI9ZrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673719463263-u2lemnsgnf6mv9lnbkktss33pc0euhjc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
