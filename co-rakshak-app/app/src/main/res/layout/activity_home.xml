@@ -8,11 +8,19 @@
     android:background="@color/white">
 
     <Button
+        android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="15dp"
+        />
+    <Button
+        android:id="@+id/new_railway_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="new booking"
+      android:layout_centerInParent="true"
         />
 </RelativeLayout>
