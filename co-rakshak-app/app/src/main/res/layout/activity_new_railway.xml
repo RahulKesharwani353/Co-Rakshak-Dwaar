@@ -6,61 +6,139 @@
     android:layout_height="match_parent"
     tools:context=".NewRailwayActivity"
     android:background="@color/white">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <com.google.android.material.textfield.TextInputLayout
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:hint="PNR Number"
-            app:boxStrokeColor="#6372FF"
-            app:hintTextColor = "@color/black"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/pnr_no"
+            android:orientation="vertical"
             >
 
-            <com.google.android.material.textfield.TextInputEditText
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:inputType="number"
-                android:textColor="#B8B8B8"
-                android:maxLines="1"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:hint="Full Name"
-            app:boxStrokeColor="#6372FF"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:textColorHint="#6372FF"
-            android:id="@+id/pName"
-            >
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="Enter Details"
+                android:textAlignment="center"
+                android:layout_marginBottom="20dp"
+                android:textSize="30sp" />
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:inputType="textPersonName"
-                android:textColor="#B8B8B8"
-                />
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="PNR Number"
+                app:boxStrokeColor="#6372FF"
+                app:hintTextColor = "#6372FF"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:id="@+id/pnr_no"
+                >
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="number"
+                    android:textColor="#B8B8B8"
+                    android:maxLines="1"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="Full Name"
+                app:boxStrokeColor="#6372FF"
+                app:hintTextColor = "#6372FF"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:id="@+id/pName"
+                >
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add PNR"
-            android:backgroundTint="#6372FF"
-            android:layout_margin="5dp"
-            android:id="@+id/add_new_pnr"/>
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textPersonName"
+                    android:textColor="#B8B8B8"
+                    />
 
-</ScrollView>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="Age"
+                app:boxStrokeColor="#6372FF"
+                app:hintTextColor = "#6372FF"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:id="@+id/pAge"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textPersonName"
+                    android:textColor="#B8B8B8"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="Address"
+                app:boxStrokeColor="#6372FF"
+                app:hintTextColor = "#6372FF"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:id="@+id/pAddress"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textPersonName"
+                    android:textColor="#B8B8B8"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="Email Address"
+                app:boxStrokeColor="#6372FF"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:hintTextColor = "#6372FF"
+                android:id="@+id/pEmail"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:inputType="textPersonName"
+                    android:textColor="#B8B8B8"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Date"
+                android:textColor="@color/black"
+                android:backgroundTint="#FFFFFF"
+                android:layout_margin="5dp"
+                android:id="@+id/date_btn"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add PNR"
+                android:backgroundTint="#6372FF"
+                android:layout_margin="5dp"
+                android:id="@+id/add_but"/>
+        </LinearLayout>
+
+    </ScrollView>
 </RelativeLayout>
