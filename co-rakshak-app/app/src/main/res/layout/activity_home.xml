@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Logout"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/new_railway_btn"
         android:layout_marginBottom="15dp"
         />
     <Button
@@ -23,4 +23,24 @@
         android:text="new booking"
       android:layout_centerInParent="true"
         />
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded"
+        android:layout_margin="25sp"
+        android:text="web"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:id="@+id/web_page"/>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rounded"
+        android:layout_margin="20dp"
+
+        />
+
 </RelativeLayout>

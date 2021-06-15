@@ -23,7 +23,12 @@ class HomeActivity : AppCompatActivity() {
             var i: Intent = Intent(this,NewRailwayActivity::class.java)
             startActivity(i)
         }
-        
+
+        var webBtn= findViewById<Button>(R.id.web_page)
+        webBtn.setOnClickListener {
+            var i: Intent = Intent(this,WebViewActivity::class.java)
+            startActivity(i)
+        }
     }
 
     override fun onStart() {
