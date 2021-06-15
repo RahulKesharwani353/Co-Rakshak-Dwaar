@@ -1,6 +1,7 @@
 package com.example.corakshak
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -41,19 +42,25 @@ class NewRailwayActivity : AppCompatActivity() {
 
         //Date Picker Start
 
+        var cal = Calendar.getInstance()
 
-        val mycalender = Calendar.getInstance()
+        val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            cal.set(Calendar.YEAR, year)
+            cal.set(Calendar.MONTH, monthOfYear)
+            cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
-        val datePicker = DatePickerDialog.OnDateSetListener{ view, year, month, dayOfMonth ->
-            mycalender.set(Calendar.YEAR, year)
-            mycalender.set(Calendar.MONTH, month)
-            mycalender.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-            updateLable(mycalender)
+            val myFormat = "dd.MM.yyyy" // mention the format you need
+            val sdf = SimpleDateFormat(myFormat, Locale.US)
+            date_btn.text = sdf.format(cal.time)
+            datefirebase = sdf.format(cal.time)
+
         }
 
-        date_btn.setOnClickListener{
-            DatePickerDialog(this, datePicker, mycalender.get(Calendar.YEAR), mycalender.get(Calendar.MONTH),
-                mycalender.get(Calendar.DAY_OF_MONTH)).show()
+        date_btn.setOnClickListener {
+            DatePickerDialog(this@NewRailwayActivity, dateSetListener,
+                cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH),
+                cal.get(Calendar.DAY_OF_MONTH)).show()
         }
 
         add_btn.setOnClickListener {
@@ -66,10 +73,17 @@ class NewRailwayActivity : AppCompatActivity() {
             val currentuser = FirebaseAuth.getInstance().currentUser!!.uid
 
             database = FirebaseDatabase.getInstance().getReference("users")
+
             var Pnr_form = PnrFrom(PNR , name , Age , Address , Emailid, datefirebase)
+
             database.child(currentuser).setValue(Pnr_form).addOnSuccessListener {
 
+                var forQRcode = (currentuser + "/" + PNR).toString()
                 Toast.makeText(this,"Done",Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this@NewRailwayActivity, QRCodeActivity::class.java)
+                intent.putExtra("message", forQRcode)
+                startActivity(intent)
 
             }.addOnFailureListener{
 
