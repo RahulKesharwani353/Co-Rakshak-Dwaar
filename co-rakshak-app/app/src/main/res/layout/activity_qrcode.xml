@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.384"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:src="@drawable/loading" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,24 +32,28 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.208">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/QRsave"
             android:layout_width="10px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Save QR" />
+            android:text="Save QR"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded"/>
 
         <Space
             android:layout_width="20dp"
             android:layout_height="1dp">
         </Space>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/AddPnr"
             android:layout_width="10px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add PNR" />
+            android:background="@drawable/rounded"
+            android:textColor="@color/white"
+            android:text="Add MORE PNR" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

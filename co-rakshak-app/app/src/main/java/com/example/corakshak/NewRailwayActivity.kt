@@ -53,10 +53,22 @@ class NewRailwayActivity : AppCompatActivity() {
             Toast.makeText(this, "sel: "+ radioButton.text.toString(), Toast.LENGTH_SHORT).show()
         }
 
+        date_btn.setOnClickListener {
+            selectDate()
+        }
 
-        //Date Picker Start
+        add_btn.setOnClickListener {
+            addPNR()
+    }
+
+
+}
+
+    //Date Picker Start
+    private fun selectDate() {
 
         var cal = Calendar.getInstance()
+
 
         val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
             cal.set(Calendar.YEAR, year)
@@ -69,58 +81,48 @@ class NewRailwayActivity : AppCompatActivity() {
             datefirebase = sdf.format(cal.time)
         }
 
-        date_btn.setOnClickListener {
+        val datePickerDialog = DatePickerDialog(this@NewRailwayActivity, dateSetListener,
+            cal.get(Calendar.YEAR),
+            cal.get(Calendar.MONTH),
+            cal.get(Calendar.DAY_OF_MONTH))
+        datePickerDialog.datePicker.minDate = System.currentTimeMillis()-1000
+        datePickerDialog.show()
+    }
 
-            val datePickerDialog = DatePickerDialog(this@NewRailwayActivity, dateSetListener,
-                cal.get(Calendar.YEAR),
-                cal.get(Calendar.MONTH),
-                cal.get(Calendar.DAY_OF_MONTH))
-            datePickerDialog.datePicker.minDate = System.currentTimeMillis()-1000
-            datePickerDialog.show()
+    private fun addPNR() {
+        val PNR = pnrNo.editText?.text.toString()
+        var name = name.editText?.text.toString()
+        var Age = age.editText?.text.toString()
+        var Address = address.editText?.text.toString()
+        var Emailid = emailid.editText?.text.toString()
+
+
+        if (PNR.isEmpty() ){
+            pnrNo.error = "enter PNR no"
+            return
         }
+        database = FirebaseDatabase.getInstance().getReference("users")
 
-        add_btn.setOnClickListener {
-            val PNR = pnrNo.editText?.text.toString()
-            var name = name.editText?.text.toString()
-            var Age = age.editText?.text.toString()
-            var Address = address.editText?.text.toString()
-            var Emailid = emailid.editText?.text.toString()
+        
+        var Pnr_form = PnrFrom(PNR , name , Age , Address , Emailid, datefirebase)
 
+        database.child("$currentuser/booking/$PNR").setValue(Pnr_form).addOnSuccessListener {
 
-            database = FirebaseDatabase.getInstance().getReference("users")
+            Toast.makeText(this,"Done",Toast.LENGTH_SHORT).show()
 
-            var Pnr_form = PnrFrom(PNR , name , Age , Address , Emailid, datefirebase)
+            val intent = Intent(this@NewRailwayActivity, QRCodeActivity::class.java)
+            intent.putExtra("uid", currentuser)
+            intent.putExtra("pnr", PNR)
+            startActivity(intent)
+            finish()
 
-            database.child(currentuser).setValue(Pnr_form).addOnSuccessListener {
+        }.addOnFailureListener{
 
-                Toast.makeText(this,"Done",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
 
-                val intent = Intent(this@NewRailwayActivity, QRCodeActivity::class.java)
-                intent.putExtra("uid", currentuser)
-                intent.putExtra("pnr", PNR)
-                startActivity(intent)
-
-            }.addOnFailureListener{
-
-                Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
-
-
-            }
 
         }
 
     }
 
-    private fun updateLable(mycalender: Calendar) {
-        val myformet = "dd-mm-yyyy"
-        val sdf = SimpleDateFormat(myformet, Locale.UK)
-        date_btn.text = sdf.format(mycalender.time)
-        datefirebase = sdf.format(mycalender.time).toString()
-    }
-
-//    private fun Gender(){
-//        var Id = radioGroup.checkedRadioButtonId
-//        radioButton = findViewById(Id)
-//        Toast.makeText(this, "select" + radioButton.text.toString(), Toast.LENGTH_SHORT).show()
-//    }
 }
