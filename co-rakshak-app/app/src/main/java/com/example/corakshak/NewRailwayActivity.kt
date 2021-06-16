@@ -3,10 +3,8 @@ package com.example.corakshak
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -30,11 +28,14 @@ class NewRailwayActivity : AppCompatActivity() {
     lateinit var radioButton: RadioButton
     var datefirebase = "10-10-2021"
     lateinit var currentuser : String
+    var VacinationStatus: String = "Non-Vacinateddd"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_railway)
 
+        //spinner start
+        //spinner end
         //val currentFirebaseUser = FirebaseAuth.getInstance().currentUser
 
         pnrNo = findViewById(R.id.pnr_no)
@@ -46,6 +47,34 @@ class NewRailwayActivity : AppCompatActivity() {
         date_btn = findViewById(R.id.date_btn)
         currentuser = FirebaseAuth.getInstance().currentUser!!.uid
         radioGroup = findViewById(R.id.gender)
+
+        //Vacination status
+
+        val languages = resources.getStringArray(R.array.vaccinationStatus)
+
+        // access the spinner
+        val spinner = findViewById<Spinner>(R.id.spinner)
+        if (spinner != null) {
+            val adapter = ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, languages)
+            spinner.adapter = adapter
+
+            spinner.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>,
+                                            view: View, position: Int, id: Long) {
+                    VacinationStatus = languages[position]
+                    Toast.makeText(this@NewRailwayActivity,
+                        getString(R.string.selected_item) + " " +
+                                "" + languages[position], Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    // write code to perform some action
+                }
+            }
+        }
+        //Vacination end
 
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
@@ -59,7 +88,8 @@ class NewRailwayActivity : AppCompatActivity() {
 
         add_btn.setOnClickListener {
             addPNR()
-    }
+        }
+
 
 
 }
@@ -104,7 +134,7 @@ class NewRailwayActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance().getReference("users")
 
         
-        var Pnr_form = PnrFrom(PNR , name , Age , Address , Emailid, datefirebase)
+        var Pnr_form = PnrFrom(PNR , name , Age , Address , Emailid, datefirebase, VacinationStatus)
 
         database.child("$currentuser/booking/$PNR").setValue(Pnr_form).addOnSuccessListener {
 

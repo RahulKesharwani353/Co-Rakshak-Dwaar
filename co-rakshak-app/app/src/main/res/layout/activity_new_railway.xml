@@ -162,14 +162,27 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Select Date"
-                android:textColor="@color/black"
-                android:backgroundTint="#FFFFFF"
-                android:layout_margin="5dp"
-                android:id="@+id/date_btn"/>
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Date"
+                    android:textColor="@color/black"
+                    android:backgroundTint="#FFFFFF"
+                    android:layout_margin="5dp"
+                    android:id="@+id/date_btn"/>
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/spinner"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
 
             <Button
                 android:layout_width="match_parent"
