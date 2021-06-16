@@ -93,7 +93,6 @@ class NewRailwayActivity : AppCompatActivity() {
 
             database.child(currentuser).setValue(Pnr_form).addOnSuccessListener {
 
-                var forQRcode = (currentuser + "/" + PNR).toString()
                 Toast.makeText(this,"Done",Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this@NewRailwayActivity, QRCodeActivity::class.java)
