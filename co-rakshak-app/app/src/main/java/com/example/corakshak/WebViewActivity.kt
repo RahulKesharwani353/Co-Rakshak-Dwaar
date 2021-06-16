@@ -24,7 +24,7 @@ class WebViewActivity : AppCompatActivity() {
 
 
         webView?.apply {
-            loadUrl("https://rahulkesharwani.study/")
+            loadUrl("https://developerstudentcommunity.co/")
             webView!!.webViewClient = WebViewClient()
             settings.javaScriptEnabled = true
             settings.safeBrowsingEnabled = true

@@ -17,8 +17,9 @@ class QRCodeActivity : AppCompatActivity() {
         code = findViewById(R.id.QRcode)
 
         val bundle = intent.extras
-        val QRcode = bundle!!.getString("message")
-
-        code.setText(QRcode)
+        val uid = bundle!!.getString("uid")
+        val PNR = bundle!!.getString("pnr")
+        val forQR : String = uid+"/"+PNR
+        code.text =forQR
     }
 }

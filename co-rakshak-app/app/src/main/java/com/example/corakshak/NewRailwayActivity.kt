@@ -4,6 +4,8 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
@@ -24,7 +26,10 @@ class NewRailwayActivity : AppCompatActivity() {
     lateinit var address : TextInputLayout
     lateinit var emailid : TextInputLayout
     lateinit var date_btn : Button
+    lateinit var radioGroup: RadioGroup
+    lateinit var radioButton: RadioButton
     var datefirebase = "10-10-2021"
+    lateinit var currentuser : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +44,15 @@ class NewRailwayActivity : AppCompatActivity() {
         address = findViewById(R.id.pAddress)
         emailid = findViewById(R.id.pEmail)
         date_btn = findViewById(R.id.date_btn)
+        currentuser = FirebaseAuth.getInstance().currentUser!!.uid
+        radioGroup = findViewById(R.id.gender)
+
+
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            radioButton = findViewById(checkedId)
+            Toast.makeText(this, "sel: "+ radioButton.text.toString(), Toast.LENGTH_SHORT).show()
+        }
+
 
         //Date Picker Start
 
@@ -49,28 +63,29 @@ class NewRailwayActivity : AppCompatActivity() {
             cal.set(Calendar.MONTH, monthOfYear)
             cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
-            val myFormat = "dd.MM.yyyy" // mention the format you need
+            val myFormat = "dd MM yyyy" // mention the format you need
             val sdf = SimpleDateFormat(myFormat, Locale.US)
             date_btn.text = sdf.format(cal.time)
             datefirebase = sdf.format(cal.time)
-
         }
 
         date_btn.setOnClickListener {
-            DatePickerDialog(this@NewRailwayActivity, dateSetListener,
+
+            val datePickerDialog = DatePickerDialog(this@NewRailwayActivity, dateSetListener,
                 cal.get(Calendar.YEAR),
                 cal.get(Calendar.MONTH),
-                cal.get(Calendar.DAY_OF_MONTH)).show()
+                cal.get(Calendar.DAY_OF_MONTH))
+            datePickerDialog.datePicker.minDate = System.currentTimeMillis()-1000
+            datePickerDialog.show()
         }
 
         add_btn.setOnClickListener {
-
-            var PNR = pnrNo.editText?.text.toString()
+            val PNR = pnrNo.editText?.text.toString()
             var name = name.editText?.text.toString()
             var Age = age.editText?.text.toString()
             var Address = address.editText?.text.toString()
             var Emailid = emailid.editText?.text.toString()
-            val currentuser = FirebaseAuth.getInstance().currentUser!!.uid
+
 
             database = FirebaseDatabase.getInstance().getReference("users")
 
@@ -82,7 +97,8 @@ class NewRailwayActivity : AppCompatActivity() {
                 Toast.makeText(this,"Done",Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this@NewRailwayActivity, QRCodeActivity::class.java)
-                intent.putExtra("message", forQRcode)
+                intent.putExtra("uid", currentuser)
+                intent.putExtra("pnr", PNR)
                 startActivity(intent)
 
             }.addOnFailureListener{
@@ -92,8 +108,6 @@ class NewRailwayActivity : AppCompatActivity() {
 
             }
 
-//            name.error = "Eneter re baba"
-//            PNR.error ="tatata"
         }
 
     }
@@ -103,8 +117,11 @@ class NewRailwayActivity : AppCompatActivity() {
         val sdf = SimpleDateFormat(myformet, Locale.UK)
         date_btn.text = sdf.format(mycalender.time)
         datefirebase = sdf.format(mycalender.time).toString()
-
-
-
     }
+
+//    private fun Gender(){
+//        var Id = radioGroup.checkedRadioButtonId
+//        radioButton = findViewById(Id)
+//        Toast.makeText(this, "select" + radioButton.text.toString(), Toast.LENGTH_SHORT).show()
+//    }
 }
