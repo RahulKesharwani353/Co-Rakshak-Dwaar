@@ -9,14 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Logout"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/new_railway_btn"
-            android:layout_marginBottom="15dp"
+            android:layout_margin="15dp"
+            android:background="@color/white"
             />
         <Button
             android:id="@+id/new_railway_btn"
@@ -24,6 +25,8 @@
             android:layout_height="wrap_content"
             android:text="new booking"
             android:layout_centerInParent="true"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             />
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"

@@ -11,9 +11,9 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:layout_margin="30dp"
+
         android:elevation="2dp"
         app:menu="@menu/nav_menu"
         android:background="@drawable/white_round_corner"

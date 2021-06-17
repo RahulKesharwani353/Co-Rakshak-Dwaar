@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="30dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/cardDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textSize="18sp"
+        android:layout_margin="10dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="title"
+        android:text="Full Name"
+        android:layout_marginStart="10dp"
         android:textSize="25sp"
-        android:layout_gravity="center"
-        android:id="@+id/cardText"/>
+        android:id="@+id/cardName"/>
+        <TextView
+            android:id="@+id/cardPnr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PNR xxxxxxxxxxxxx"
+            android:textSize="20sp"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

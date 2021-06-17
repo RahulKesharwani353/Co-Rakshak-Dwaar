@@ -1,4 +1,5 @@
-package com.example.testapp
+package com.example.corakshak
+
 
 import android.view.LayoutInflater
 import android.view.View
@@ -17,9 +18,11 @@ class adapter(val listdataModel: List<dataModel>)  : RecyclerView.Adapter<adapte
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.title.text = listdataModel.get(position).title
+        holder.name.text = listdataModel.get(position).name
+        holder.date.text = listdataModel.get(position).pnr
+        holder.pnr.text = listdataModel.get(position).date
         holder.itemView.setOnClickListener {
-            Toast.makeText(it.context, listdataModel.get(position).title, Toast.LENGTH_SHORT).show()
+            Toast.makeText(it.context, listdataModel.get(position).name, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -27,6 +30,8 @@ class adapter(val listdataModel: List<dataModel>)  : RecyclerView.Adapter<adapte
         return listdataModel.size
     }
     class MyViewHolder(view: View): RecyclerView.ViewHolder(view){
-        val title : TextView = view.findViewById(R.id.cardText)
+        val name : TextView = view.findViewById(R.id.cardName)
+        val date : TextView = view.findViewById(R.id.cardDate)
+        val pnr : TextView = view.findViewById(R.id.cardPnr)
     }
 }
