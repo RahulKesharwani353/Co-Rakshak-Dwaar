@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "673719463263",
+    "firebase_url": "https://co-rakshak-dwaar-default-rtdb.firebaseio.com",
+    "project_id": "co-rakshak-dwaar",
+    "storage_bucket": "co-rakshak-dwaar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673719463263:android:48237a1b11e04991ba1aea",
+        "android_client_info": {
+          "package_name": "com.example.corakshak"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673719463263-gpl02g1i4g7norlrcv6pkt26lf5e0odj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.corakshak",
+            "certificate_hash": "e70ef34e8e2cb7d3146bcfb4f30642e3131e9a1b"
+          }
+        },
+        {
+          "client_id": "673719463263-hthevv846io0bh5sfqbeqtqtfen0rrm1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.corakshak",
+            "certificate_hash": "f4121fca89dfeebc24ec04302dd9394d64e7561c"
+          }
+        },
+        {
+          "client_id": "673719463263-l3fet9afrg82ju795ol7qc6r61tohcmu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.corakshak",
+            "certificate_hash": "22f922f065980ce9abd85617befb3aab05d3f0dd"
+          }
+        },
+        {
+          "client_id": "673719463263-u2lemnsgnf6mv9lnbkktss33pc0euhjc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8BUBbx362Flb_vYcH09O6O2hKPYI9ZrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673719463263-u2lemnsgnf6mv9lnbkktss33pc0euhjc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673719463263:android:686918f54ff930d4ba1aea",
+        "android_client_info": {
+          "package_name": "com.example.corakshakscanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673719463263-u2lemnsgnf6mv9lnbkktss33pc0euhjc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8BUBbx362Flb_vYcH09O6O2hKPYI9ZrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673719463263-u2lemnsgnf6mv9lnbkktss33pc0euhjc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

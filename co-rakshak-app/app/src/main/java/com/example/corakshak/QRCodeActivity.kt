@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull
 import java.io.*
 
 
-class QRCodeActivity : AppCompatActivity() {
+class   QRCodeActivity : AppCompatActivity() {
 
     lateinit var qrDispaly : ImageView
     lateinit var addpnr : Button
