@@ -1,4 +1,5 @@
-package com.example.testapp
+package com.example.corakshak
 
-data class dataModel(val title: String?) {
+class dataModel(val date: String?= null, val name: String?= null,val pnr: String?= null){
+
 }

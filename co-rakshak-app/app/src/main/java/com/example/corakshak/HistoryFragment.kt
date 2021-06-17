@@ -1,18 +1,21 @@
 package com.example.corakshak
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.testapp.adapter
-import com.example.testapp.dataModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+
 
 class HistoryFragment : Fragment() {
 
-
+    var database: DatabaseReference? = null
+   var  currentuser: String = FirebaseAuth.getInstance().currentUser!!.uid
     lateinit var adapter: adapter
     var listdataModel: ArrayList<dataModel> = ArrayList()
 
@@ -34,12 +37,27 @@ class HistoryFragment : Fragment() {
         adapter = adapter(listdataModel)
         recyclerView.adapter = adapter
         return view
+
     }
 
     fun addData(){
-        listdataModel.add(dataModel("Anuj"))
-        listdataModel.add(dataModel("Rahul"))
-        listdataModel.add(dataModel("surayansh"))
+        database = FirebaseDatabase.getInstance().getReference("users/$currentuser/booking");
+        database!!.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot in snapshot.children) {
+                    val booking = dataSnapshot.getValue(dataModel::class.java)
+                    if (booking != null) {
+                        listdataModel.add(booking)
+                    }
+                    else
+                        Toast.makeText(activity, "Emplty", Toast.LENGTH_SHORT).show()
+                }
+                adapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+        })
+
     }
     companion object {
 
