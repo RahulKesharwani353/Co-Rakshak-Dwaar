@@ -32,6 +32,7 @@
             android:itemBackground="#F4F6F9"
             android:cursorVisible="true"
             app:lineColor="#2196F3"
+            android:elevation="20dp"
             android:textColor="#1F1F1F"
             android:inputType="number"
             app:hideLineWhenFilled="true"

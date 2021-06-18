@@ -3,6 +3,7 @@ package com.example.corakshak
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -18,19 +19,22 @@ class NewRailwayActivity : AppCompatActivity() {
 
     private lateinit var database : DatabaseReference
     lateinit var pnrNo : TextInputLayout
-    lateinit var name : TextInputLayout
+    lateinit var FName : TextInputLayout
+    lateinit var LName : TextInputLayout
     lateinit var add_btn : Button
     lateinit var age : TextInputLayout
     lateinit var address : TextInputLayout
     lateinit var emailid : TextInputLayout
+    lateinit var phnNo : TextInputLayout
     lateinit var date_btn : Button
     lateinit var radioGroup: RadioGroup
     lateinit var radioButton: RadioButton
-    var datefirebase = "10-10-2021"
+    var datefirebase = ""
     lateinit var currentuser : String
-    var VacinationStatus: String = "Non-Vacinateddd"
+    var VacinationStatus: String = ""
+    var gender: String ="Male"
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+        override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_railway)
 
@@ -39,11 +43,13 @@ class NewRailwayActivity : AppCompatActivity() {
         //val currentFirebaseUser = FirebaseAuth.getInstance().currentUser
 
         pnrNo = findViewById(R.id.pnr_no)
-        name = findViewById(R.id.pName)
+        FName = findViewById(R.id.pFName)
+            LName = findViewById(R.id.pLName)
         add_btn = findViewById(R.id.add_but)
         age = findViewById(R.id.pAge)
         address = findViewById(R.id.pAddress)
         emailid = findViewById(R.id.pEmail)
+            phnNo = findViewById(R.id.pPhnNo)
         date_btn = findViewById(R.id.date_btn)
         currentuser = FirebaseAuth.getInstance().currentUser!!.uid
         radioGroup = findViewById(R.id.gender)
@@ -63,10 +69,14 @@ class NewRailwayActivity : AppCompatActivity() {
                 AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>,
                                             view: View, position: Int, id: Long) {
-                    VacinationStatus = languages[position]
-                    Toast.makeText(this@NewRailwayActivity,
-                        getString(R.string.selected_item) + " " +
-                                "" + languages[position], Toast.LENGTH_SHORT).show()
+                    if(position == 0){
+                        VacinationStatus = ""
+                    }else{
+                        VacinationStatus = languages[position]
+                        Toast.makeText(this@NewRailwayActivity,
+                            getString(R.string.selected_item) + " " +
+                                    "" + languages[position], Toast.LENGTH_SHORT).show()
+                    }
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>) {
@@ -79,7 +89,7 @@ class NewRailwayActivity : AppCompatActivity() {
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             radioButton = findViewById(checkedId)
-            Toast.makeText(this, "sel: "+ radioButton.text.toString(), Toast.LENGTH_SHORT).show()
+           gender = radioButton.text.toString()
         }
 
         date_btn.setOnClickListener {
@@ -121,20 +131,52 @@ class NewRailwayActivity : AppCompatActivity() {
 
     private fun addPNR() {
         val PNR = pnrNo.editText?.text.toString()
-        var name = name.editText?.text.toString()
+        var fName = FName.editText?.text.toString()
+        var lName = LName.editText?.text.toString()
         var Age = age.editText?.text.toString()
         var Address = address.editText?.text.toString()
         var Emailid = emailid.editText?.text.toString()
-
+        var PhnNo = phnNo.editText?.text.toString()
+        var Name : String = "$fName $lName"
 
         if (PNR.isEmpty() ){
-            pnrNo.error = "enter PNR no"
+            pnrNo.error = "PNR Number is Required"
             return
         }
+        if (fName.isEmpty() || lName.isEmpty() ){
+            FName.error = "Name is Required"
+            LName.error = "Name is Required"
+            return
+        }
+        if (Age.isEmpty() ){
+            age.error = "Please fill the field first"
+            return
+        }
+        if (Address.isEmpty() ){
+            address.error = "Please fill the field first"
+            return
+        }
+        if (Emailid.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(Emailid).matches()){
+            emailid.error = "Invalid Email"
+            return
+        }
+        if (PhnNo.isEmpty()){
+            phnNo.error = "Enter Phone Number"
+            return
+        }
+        if (VacinationStatus.isEmpty() ){
+            Toast.makeText(this, "please Select Vaccine Status", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (datefirebase.isEmpty() ){
+            Toast.makeText(this, "please Select Date of travel", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         database = FirebaseDatabase.getInstance().getReference("users")
 
         
-        var Pnr_form = PnrFrom(PNR , name , Age , Address , Emailid, datefirebase, VacinationStatus)
+        var Pnr_form = PnrFrom(PNR , Name , Age , Address , Emailid, datefirebase, VacinationStatus,gender, PhnNo, currentuser)
 
         database.child("$currentuser/booking/$PNR").setValue(Pnr_form).addOnSuccessListener {
 

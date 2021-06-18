@@ -10,21 +10,28 @@ import androidx.appcompat.app.AppCompatActivity
 
 class WebViewActivity : AppCompatActivity() {
      var webView : WebView? = null
+
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view)
+        val bundle = intent.extras
+        val site = bundle?.getString("site")
+
         webView = findViewById<WebView>(R.id.wb_webView)!!
-        webViewsetup()
+        if (site != null) {
+            webViewsetup(site)
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("SetJavaScriptEnabled")
-    private fun webViewsetup() {
+    private fun webViewsetup(site: String) {
 
 
         webView?.apply {
-            loadUrl("https://developerstudentcommunity.co/")
+            loadUrl(site)
             webView!!.webViewClient = WebViewClient()
             settings.javaScriptEnabled = true
             settings.safeBrowsingEnabled = true

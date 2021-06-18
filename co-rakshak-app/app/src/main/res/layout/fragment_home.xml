@@ -3,41 +3,258 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="75dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical">
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:paddingEnd="25dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/black"
+                android:elevation="10dp"
+                android:outlineProvider="background"
+                android:padding="5dp"
+                android:translationZ="10dp"
+                app:cardBackgroundColor="@color/white">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="3dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/splashscreen" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ic_setting"
+                android:backgroundTint="@color/dark_cyan" />
+
+        </RelativeLayout>
+<!-- ***************************Greeting*******************-->
+        <RelativeLayout
+            android:paddingStart="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/greeting"
+                android:text="Good morning,"
+                android:textStyle="normal"
+                android:elevation="25dp"
+                android:textColor="@color/dark_cyan"
+                android:textSize="30sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/greeting_name"
+                android:text="Rahul Kesharwani"
+                android:textColor="@color/dark_cyan"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_below="@id/greeting"/>
+        </RelativeLayout>
+
+<!--********************************CO]atorgy***************-->
+        <RelativeLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/whatsLocation"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:text="What's your location?"
+                android:textColor="@color/dark_cyan"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_margin = "10dp"
+
+                android:layout_centerHorizontal="true"/>
+
+            <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:layout_below="@+id/whatsLocation"
+
+                android:layout_centerHorizontal="true"
+            >
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:elevation="5dp"
+                    android:layout_margin="10dp"
+                    app:cardBackgroundColor="@color/white"
+                    android:backgroundTint="@drawable/button_selector"
+                    app:cardCornerRadius="10dp"
+                    android:id="@+id/new_railway_btn">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/railway"
+                        android:backgroundTint="@drawable/text_selector"
+                        android:layout_gravity="center"/>
+                </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Railway Station"
+                    android:textSize="13sp"
+                    android:textColor="@color/dark_cyan"
+                    android:layout_margin="5dp"
+                    android:layout_below="@+id/new_railway_btn"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:elevation="5dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/black"
+                    app:cardBackgroundColor="@color/white"
+                    android:backgroundTint="@drawable/button_selector"
+                    app:cardCornerRadius="10dp"
+                    android:id="@+id/new_airport_btn">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/plane"
+                        android:backgroundTint="@drawable/text_selector"
+                        android:layout_gravity="center"/>
+                </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Airport"
+                    android:textSize="13sp"
+                    android:textColor="@color/dark_cyan"
+                    android:layout_margin="5dp"
+                    android:layout_below="@+id/new_airport_btn"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:elevation="2dp"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="@drawable/button_selector"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    android:id="@+id/new_bus_btn">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bus"
+                        android:backgroundTint="@color/dark_cyan"
+                        android:layout_gravity="center"/>
+                </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bus Stop"
+                    android:textSize="13sp"
+                    android:textColor="@color/dark_cyan"
+                    android:layout_margin="5dp"
+                    android:layout_below="@+id/new_bus_btn"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
+        </GridLayout>
+        </RelativeLayout>
+<!--        *******************************Category  END*****************-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="30dp"
+            android:text="Covid-19 Resources"
+            android:textColor="@color/dark_cyan"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/new_railway_btn"
-            android:layout_margin="15dp"
+        android:layout_height="wrap_content"
+       android:layout_marginTop="0dp"
+        >
+        <ImageButton
             android:background="@color/white"
-            />
-        <Button
-            android:id="@+id/new_railway_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="new booking"
-            android:layout_centerInParent="true"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            />
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
+            android:src="@drawable/test"
+            android:id="@+id/book_test_btn"/>
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded"
-            android:layout_margin="25sp"
-            android:text="web"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-            android:id="@+id/web_page"/>
+            android:text="Book a\nCovid Test"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_cyan"
+            android:layout_centerVertical="true"
+            android:layout_margin="40dp"/>
 
     </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="-20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <ImageButton
 
+                android:background="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/vaccine"
+                android:id="@+id/book_vacc_btn"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book your\nVaccine"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_cyan"
+                android:layout_centerVertical="true"
+                android:layout_margin="40dp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
 </FrameLayout>

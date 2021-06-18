@@ -43,7 +43,7 @@ class   QRCodeActivity : AppCompatActivity() {
         val bundle = intent.extras
         val uid = bundle!!.getString("uid")
         val PNR = bundle!!.getString("pnr")
-        val content : String = "$uid/$PNR"
+        val content : String = "$uid/booking/$PNR"
         pnr_no = PNR.toString()
 
         //qr code Genrate start
