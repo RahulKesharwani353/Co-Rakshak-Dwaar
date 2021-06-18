@@ -9,4 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="black_dul">#424242</color>
 
+    <color name="cyan">#60EFFF</color>
+    <color name="light_cyan">#BCF8FF</color>
+    <color name="dark_cyan">#0B4F6C</color>
+    <color name="most_dark_cyan">#040F16</color>
+
+
 </resources>

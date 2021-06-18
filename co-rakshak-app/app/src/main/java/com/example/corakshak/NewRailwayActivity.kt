@@ -19,7 +19,8 @@ class NewRailwayActivity : AppCompatActivity() {
 
     private lateinit var database : DatabaseReference
     lateinit var pnrNo : TextInputLayout
-    lateinit var name : TextInputLayout
+    lateinit var FName : TextInputLayout
+    lateinit var LName : TextInputLayout
     lateinit var add_btn : Button
     lateinit var age : TextInputLayout
     lateinit var address : TextInputLayout
@@ -42,7 +43,8 @@ class NewRailwayActivity : AppCompatActivity() {
         //val currentFirebaseUser = FirebaseAuth.getInstance().currentUser
 
         pnrNo = findViewById(R.id.pnr_no)
-        name = findViewById(R.id.pName)
+        FName = findViewById(R.id.pFName)
+            LName = findViewById(R.id.pLName)
         add_btn = findViewById(R.id.add_but)
         age = findViewById(R.id.pAge)
         address = findViewById(R.id.pAddress)
@@ -129,19 +131,21 @@ class NewRailwayActivity : AppCompatActivity() {
 
     private fun addPNR() {
         val PNR = pnrNo.editText?.text.toString()
-        var Name = name.editText?.text.toString()
+        var fName = FName.editText?.text.toString()
+        var lName = LName.editText?.text.toString()
         var Age = age.editText?.text.toString()
         var Address = address.editText?.text.toString()
         var Emailid = emailid.editText?.text.toString()
         var PhnNo = phnNo.editText?.text.toString()
-
+        var Name : String = "$fName $lName"
 
         if (PNR.isEmpty() ){
             pnrNo.error = "PNR Number is Required"
             return
         }
-        if (Name.isEmpty() ){
-            name.error = "Name is Required"
+        if (fName.isEmpty() || lName.isEmpty() ){
+            FName.error = "Name is Required"
+            LName.error = "Name is Required"
             return
         }
         if (Age.isEmpty() ){
