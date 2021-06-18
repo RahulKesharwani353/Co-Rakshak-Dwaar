@@ -38,6 +38,7 @@ class LoginActivity : AppCompatActivity() {
         val login : Button = findViewById(R.id.login)
         login.setOnClickListener {
             loginUser()
+
         }
 
     }

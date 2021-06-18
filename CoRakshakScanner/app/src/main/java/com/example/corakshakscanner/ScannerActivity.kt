@@ -1,6 +1,7 @@
 package com.example.corakshakscanner
 
 import android.content.Intent
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -8,29 +9,38 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.*
 import com.google.zxing.integration.android.IntentIntegrator
+import java.util.*
 
 
 class ScannerActivity : AppCompatActivity() {
 
-    lateinit var scanBtn: Button
-    lateinit var messageText: TextView
-    lateinit var messageFormat:TextView
+    lateinit var dbRef: DatabaseReference
+     var status: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scanner)
+//
+//        scanBtn = findViewById(R.id.scanBtn)
+//        messageText = findViewById(R.id.textContent)
+//        messageFormat = findViewById(R.id.textFormat)
+//
+//        scanBtn.setOnClickListener{
+//
+//        }
+        dbRef = FirebaseDatabase.getInstance().reference
 
-        scanBtn = findViewById(R.id.scanBtn)
-        messageText = findViewById(R.id.textContent)
-        messageFormat = findViewById(R.id.textFormat)
+    }
 
-        scanBtn.setOnClickListener{
-            val intentIntegrator = IntentIntegrator(this)
-            intentIntegrator.setPrompt("Scan Your PNR Code")
-            intentIntegrator.setOrientationLocked(true)
-            intentIntegrator.initiateScan()
-        }
+    override fun onStart() {
+        super.onStart()
+        val intentIntegrator = IntentIntegrator(this)
+        intentIntegrator.setPrompt("Scan Your PNR Code")
+        intentIntegrator.setOrientationLocked(true)
+        intentIntegrator.initiateScan()
+
     }
 
 
@@ -43,15 +53,87 @@ class ScannerActivity : AppCompatActivity() {
         if (intentResult != null) {
             if (intentResult.contents == null) {
                 Toast.makeText(baseContext, "Cancelled", Toast.LENGTH_SHORT).show()
+                finish()
             } else {
-                // if the intentResult is not null we'll set
-                // the content and format of scan message
-                messageText!!.text = intentResult.contents
-                messageFormat!!.text = intentResult.formatName
+                setUp(intentResult.contents.toString())
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
     }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    fun setUp(qrVal: String){
+        val date = Calendar.getInstance().time
+        val Dateformatter = SimpleDateFormat("dd MM yyyy")//or use getDateInstance()
+        val Timeformatter = SimpleDateFormat("HH:mm:ss")
+        val formatedDate = Dateformatter.format(date).toString()
+        val formatedTime = Timeformatter.format(date).toString()
+        var pnr: String =""
+        var name: String=""
+        var age: String=""
+        var add: String=""
+        var vacc: String=""
+        var phnNo: String=""
+        var uid: String=""
+        var gender: String=""
+
+
+
+
+        dbRef.child("users/$qrVal").get().addOnSuccessListener {
+            if (it.exists()){
+                pnr = it.child("pnr").value.toString()
+                name = it.child("name").value.toString()
+                age = it.child("age").value.toString()
+                gender = it.child("gender").value.toString()
+                add = it.child("address").value.toString()
+                phnNo = it.child("phone").value.toString()
+                vacc = it.child("vacinationStatus").value.toString()
+                uid = it.child("uid").value.toString()
+
+
+
+                dbRef.child("controller/module1").addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        status = snapshot.child("status").value.toString().toInt()
+                        if (status ==0){
+                            Toast.makeText(this@ScannerActivity, "Processing", Toast.LENGTH_SHORT).show()
+                            dbRef.child("controller/module1").child("currentPNR").setValue(pnr)
+                            dbRef.child("controller/module1").child("currentDate").setValue(formatedDate)
+                            dbRef.child("controller/module1").child("currentURI").setValue(uid)
+                            dbRef.child("controller/module1").child("status").setValue(1)
+
+                                .addOnCompleteListener {
+                                  if (it.isSuccessful)
+                                      Toast.makeText(this@ScannerActivity, "$name-$age-$gender-$uid-$formatedTime", Toast.LENGTH_SHORT).show()
+                                }
+
+
+                        }
+                        else
+                        {
+                            Toast.makeText(this@ScannerActivity, "Already Busy", Toast.LENGTH_SHORT).show()
+                            return
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+                })
+            }
+            else
+                Toast.makeText(this, "Wrong QR ", Toast.LENGTH_SHORT).show()
+
+        }.addOnFailureListener {
+            Toast.makeText(this, "Failed, Try Again", Toast.LENGTH_SHORT).show()
+        }
+        }
+
+
 }
 

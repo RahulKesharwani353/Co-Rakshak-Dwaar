@@ -4,6 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="selected_item">Selected item:</string>
     <string-array name="vaccinationStatus">
+        <item>Vaccine Status</item>
         <item>Vaccinated</item>
         <item>Non-Vaccinated</item>
         <item>Fist Dose</item>
