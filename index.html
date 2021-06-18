@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Co-rakshak | DataBase</title>
+      
+</head>
+<body>
+    <h1 class="mt-4 mb-4 text-center" style="font-family: 'Montserrat', sans-serif;">Co-Rakshak DataBase</h1>
+
+    <div class="container">
+        Please Enter the Date:
+        <input type="number"  placeholder="Day" style="width: 60px;" id="day">
+        /
+        <input type="number" placeholder="Month" style="width: 60px;" id="month">
+        /
+        <input type="number" placeholder="Year" style="width: 80px;" id="year">
+        <button type="button" class="btn btn-dark" onclick="RetriveBtn()">Retrive Data</button>
+    </div>
+    <div class="container mt-3">
+        <table class="table">
+            <thead class="table-dark text-white">
+                <th>Serial Number</th>
+                <th>Time</th>
+                <th>PNR</th>
+                <th>Name</th>
+                <th>Temperature</th>
+            </thead>
+        <tbody id="tbody1"></tbody>
+    </table>
+</div>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script> 
+
+    <script id="MainScript">
+        //------------------Firebase---------------//
+                var firebaseConfig = {
+                    apiKey: "AIzaSyBOrJdBvIbSYWiJv6EG48PZ1uLzNrQRQ1Q",
+                    authDomain: "co-rakshak-dwaar.firebaseapp.com",
+                    databaseURL: "https://co-rakshak-dwaar-default-rtdb.firebaseio.com",
+                    projectId: "co-rakshak-dwaar",
+                    storageBucket: "co-rakshak-dwaar.appspot.com",
+                    messagingSenderId: "673719463263",
+                    appId: "1:673719463263:web:a8ec73a38039e59fba1aea",
+                    measurementId: "G-81J06M3BHR"
+                };
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+                //firebase.analytics();
+        //--------------getdata----------------//
+
+        function RetriveBtn(){
+            var Data_day = document.getElementById("day").value;
+            var Data_month = document.getElementById("month").value;
+            var Data_year = document.getElementById("year").value;
+            SelectAllData(Data_day , Data_month , Data_year);
+        }
+
+        function SelectAllData(Data_day , Data_month , Data_year){
+            var firebaseFef = firebase.database().ref("test/"+ Data_day + " "+ Data_month +" "+ Data_year);
+            firebaseFef.on("value" , function(snapshot){
+                
+                    snapshot.forEach(  
+                        function(currenRecord){
+                            var CheckInTime = currenRecord.val().checkInTime;
+                            var PNR = currenRecord.val().pnr;
+                            var Name = currenRecord.val().name;
+                            var Temp = currenRecord.val().temp;
+                            AddItemToTable(PNR, Name, CheckInTime, Temp);
+                        }
+                    );
+                  
+            });
+        }
+        
+        //window.onload = SelectAllData();
+        var stdNo = 0;
+        function AddItemToTable(PNR, Name, checkInTime, temp){
+            var tbody = document.getElementById('tbody1');
+            var trow = document.createElement('tr');
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+            var td5 = document.createElement('td');
+            
+
+            td1.innerHTML = ++stdNo;
+            td2.innerHTML = checkInTime;
+            td3.innerHTML = PNR;
+            td4.innerHTML = Name;
+            td5.innerHTML = temp;
+            
+
+            trow.appendChild(td1);
+            trow.appendChild(td2);
+            trow.appendChild(td3);
+            trow.appendChild(td4);
+            trow.appendChild(td5);
+
+            tbody.appendChild(trow);
+
+        }
+
+        
+    </script>
+    <!-- <script>
+    $(function(){
+        var dtToday = new Date();
+        var month = dtToday.getMonth() + 1;
+        var Day = dtToday.getDate();
+        var Year = dtToday.getFullYear();
+        if(month<0){
+            month = '0' + month.toString();
+        }
+        if(day < 10){
+            day = '0' + dat.toString();
+            var maxDate = Year + '-' + month + '-' + day;
+            $('.txtDate').attr('max', maxDate);
+        }
+    })</script> -->
+</body>
+</html>
