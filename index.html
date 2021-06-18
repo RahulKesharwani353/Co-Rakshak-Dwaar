@@ -12,7 +12,7 @@
       
 </head>
 <body>
-    <h1 class="mt-4 mb-4 text-center" style="font-family: 'Montserrat', sans-serif;">Co-Rakshak DataBase</h1>
+    <h1 class="mt-4 mb-4 mb-5 text-center" style="font-family: 'Montserrat', sans-serif;">Co-Rakshak DataBase</h1>
 
     <div class="container">
         Please Enter the Date:
@@ -23,7 +23,7 @@
         <input type="number" placeholder="Year" style="width: 80px;" id="year">
         <button type="button" class="btn btn-dark" onclick="RetriveBtn()">Retrive Data</button>
     </div>
-    <div class="container mt-3">
+    <div class="container mt-3 tabletop" style="visibility: hidden;">
         <table class="table">
             <thead class="table-dark text-white">
                 <th>Serial Number</th>
@@ -64,8 +64,16 @@
         }
 
         function SelectAllData(Data_day , Data_month , Data_year){
+            if(Data_year=="" || Data_month=="" || Data_day==""){
+                alert("Enter All Detail Property");
+                return;
+            }
             var firebaseFef = firebase.database().ref("test/"+ Data_day + " "+ Data_month +" "+ Data_year);
             firebaseFef.on("value" , function(snapshot){
+                if (snapshot.exists())
+                    console.log("Exits")
+                else
+                    alert ("No Data Exits At For This Date");
                 
                     snapshot.forEach(  
                         function(currenRecord){
@@ -73,6 +81,9 @@
                             var PNR = currenRecord.val().pnr;
                             var Name = currenRecord.val().name;
                             var Temp = currenRecord.val().temp;
+                            if(PNR == null){
+                                alert("Enter real");
+                            }
                             AddItemToTable(PNR, Name, CheckInTime, Temp);
                         }
                     );
@@ -83,6 +94,7 @@
         //window.onload = SelectAllData();
         var stdNo = 0;
         function AddItemToTable(PNR, Name, checkInTime, temp){
+            var tableTop = document.getElementById('tabletop')
             var tbody = document.getElementById('tbody1');
             var trow = document.createElement('tr');
             var td1 = document.createElement('td');
@@ -106,6 +118,7 @@
             trow.appendChild(td5);
 
             tbody.appendChild(trow);
+
 
         }
 
