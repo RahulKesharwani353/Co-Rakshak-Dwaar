@@ -88,7 +88,7 @@ class NewRailwayActivity : AppCompatActivity() {
 
 
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
-            radioButton = findViewById(checkedId)
+                radioButton = findViewById(checkedId)
            gender = radioButton.text.toString()
         }
 

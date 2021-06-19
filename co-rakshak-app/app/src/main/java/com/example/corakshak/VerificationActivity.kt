@@ -10,9 +10,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.database.*
 
 class VerificationActivity : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
+    lateinit var currentuser : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verification)
@@ -41,8 +43,8 @@ class VerificationActivity : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(applicationContext, HomeActivity::class.java))
-                    finishAffinity()
+
+                    DataCheck()
 // ...
                 } else {
 // Sign in failed, display a message and update the UI
@@ -52,6 +54,26 @@ class VerificationActivity : AppCompatActivity() {
                     }
                 }
             }
+    }
+    private fun  DataCheck() {
+        currentuser = FirebaseAuth.getInstance().currentUser!!.uid
+        //var postRef = FirebaseDatabase.getInstance().getReference().child("UsersData")
+        val rootRef = FirebaseDatabase.getInstance().reference
+        //val fdbRefer = FirebaseDatabase.getInstance().getReference("UsersData/$currentuser")
+        val userNameRef: DatabaseReference = rootRef.child("UsersData").child(currentuser)
+        val eventListener: ValueEventListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (!dataSnapshot.exists()) {
+                    startActivity(Intent(applicationContext, UserInfoFormActivity2::class.java))
+                    finish()
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(applicationContext, "OPPs! Something Want Wrong", Toast.LENGTH_LONG).show()
+            }
+        }
+        userNameRef.addListenerForSingleValueEvent(eventListener)
     }
 
 }

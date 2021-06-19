@@ -1,19 +1,19 @@
 package com.example.corakshak
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.database.*
 import java.util.concurrent.TimeUnit
-
 
 
 class LoginActivity : AppCompatActivity() {
@@ -33,10 +33,10 @@ class LoginActivity : AppCompatActivity() {
         val Login=findViewById<Button>(R.id.loginBtn)
 
 
-        var currentUser = auth.currentUser
-        if(currentUser != null) {
+        val currentUserss = auth.currentUser
+        if(currentUserss != null) {
             startActivity(Intent(applicationContext, HomeActivity::class.java))
-            finish()
+            finishAffinity()
         }
 
         Login.setOnClickListener{
@@ -48,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
 
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 startActivity(Intent(applicationContext, HomeActivity::class.java))
-                finish()
+                finishAffinity()
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
@@ -71,6 +71,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
+
 
     private fun login() {
         val mobileNumber=findViewById<EditText>(R.id.phoneNumber)

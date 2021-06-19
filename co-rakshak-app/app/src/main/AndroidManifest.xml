@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CoRakshak">
         <activity android:name=".InstructionActivity"></activity>
+        <activity android:name=".UserInfoFormActivity2"/>
         <activity android:name=".WebViewActivity" />
         <activity android:name=".QRCodeActivity" />
         <activity android:name=".NewRailwayActivity" />
