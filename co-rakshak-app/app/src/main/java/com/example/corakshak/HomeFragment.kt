@@ -42,6 +42,13 @@ class HomeFragment : Fragment() {
             i.putExtra("site","https://www.cowin.gov.in/home")
             startActivity(i)
         }
+        var bookTest = view.findViewById<ImageButton>(R.id.book_test_btn)
+        bookVacc.setOnClickListener {
+            var i: Intent = Intent(activity,WebViewActivity::class.java)
+            i.putExtra("site","https://www.icmr.gov.in/cteststrat.html")
+            startActivity(i)
+        }
+
         return view
     }
 

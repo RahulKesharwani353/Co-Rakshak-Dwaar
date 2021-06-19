@@ -3,33 +3,98 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="30dp">
+    app:cardElevation="8dp"
+    android:layout_margin="15dp"
+    app:cardCornerRadius="20dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/cardDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Date"
-        android:textSize="18sp"
-        android:layout_margin="10dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Full Name"
-        android:layout_marginStart="10dp"
-        android:textSize="25sp"
-        android:id="@+id/cardName"/>
-        <TextView
-            android:id="@+id/cardPnr"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PNR xxxxxxxxxxxxx"
-            android:textSize="20sp"
-            android:layout_margin="10dp"/>
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date-"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@color/dark_cyan"
+             />
+            <TextView
+                android:id="@+id/cardDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DD-MM-YYYY"
+                android:textColor="@color/dark_cyan"
+                android:textSize="15sp"
+                android:layout_marginStart="55dp"/>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PNR-"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@color/dark_cyan"
+                />
+            <TextView
+                android:id="@+id/cardPnr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxxx-xxxx"
+                android:textColor="@color/dark_cyan"
+                android:textSize="15sp"
+                android:layout_marginStart="55dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name-"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@color/dark_cyan"
+                />
+            <TextView
+                android:id="@+id/cardName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name"
+                android:textColor="@color/dark_cyan"
+                android:textSize="15sp"
+                android:layout_marginStart="55dp"/>
+        </RelativeLayout>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        >
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_qr_code"
+            android:backgroundTint="@color/dark_cyan"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"/>
+    </RelativeLayout>
+
 </androidx.cardview.widget.CardView>

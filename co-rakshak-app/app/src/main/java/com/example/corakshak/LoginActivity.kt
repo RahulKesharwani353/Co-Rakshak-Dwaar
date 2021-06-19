@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
@@ -30,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         auth=FirebaseAuth.getInstance()
 
         //        Reference
-        val Login=findViewById<Button>(R.id.loginBtn)
+        val Login=findViewById<CardView>(R.id.loginBtn)
 
 
         val currentUserss = auth.currentUser
@@ -78,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
         var number=mobileNumber.text.toString().trim()
 
         if(!number.isEmpty()){
-            number="+91"+number
+            number= "+91$number"
             sendVerificationcode (number)
         }else{
             Toast.makeText(this,"Enter mobile number",Toast.LENGTH_SHORT).show()

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
@@ -23,7 +24,7 @@ class VerificationActivity : AppCompatActivity() {
         val storedVerificationId=intent.getStringExtra("storedVerificationId")
 
 //        Reference
-        val verify=findViewById<Button>(R.id.verifyBtn)
+        val verify=findViewById<CardView>(R.id.verifyBtn)
         val otpGiven=findViewById<EditText>(R.id.id_otp)
 
 
@@ -67,6 +68,9 @@ class VerificationActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, UserInfoFormActivity2::class.java))
                     finish()
                 }
+                else
+                    startActivity(Intent(applicationContext, HomeActivity::class.java))
+                finish()
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

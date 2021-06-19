@@ -17,13 +17,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="25dp">
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/nav_home"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/ic_home"
-                android:backgroundTint="@color/dark_cyan"
-                />
 
             <TextView
                 android:padding="5dp"

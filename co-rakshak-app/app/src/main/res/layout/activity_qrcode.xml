@@ -1,59 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QRCodeActivity">
+    android:orientation="vertical"
+    tools:context=".QRCodeActivity"
+    android:layout_margin="25sp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="240dp"
-        android:layout_height="216dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384"
-        android:src="@drawable/loading" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/nav_home"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_home"
+        android:backgroundTint="@color/dark_cyan"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Passenger QR\nCode"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/dark_cyan"
+        android:layout_marginBottom="30dp"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:background="@color/black"
+        android:translationZ="15dp"
+        android:layout_margin="20dp"
+    android:layout_gravity="center"
+        app:cardCornerRadius="25sp">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/loading" />
+    </androidx.cardview.widget.CardView>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal"
-        android:layout_marginLeft="20px"
-        android:layout_marginRight="20px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.208">
+        >
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/QRsave"
             android:layout_width="10px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Save QR"
-            android:textColor="@color/white"
-            android:background="@drawable/rounded"/>
+            android:text="download QR"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/dark_cyan"
+            android:textStyle="bold"
+            />
 
         <Space
             android:layout_width="20dp"
             android:layout_height="1dp">
         </Space>
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/AddPnr"
             android:layout_width="10px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/rounded"
+            android:backgroundTint="@color/dark_cyan"
             android:textColor="@color/white"
             android:text="Add MORE PNR" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

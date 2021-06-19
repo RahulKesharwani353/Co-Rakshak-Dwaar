@@ -133,10 +133,10 @@
              android:layout_centerVertical="true"
              android:layout_marginStart="30dp"
              />
-         <ImageView
+         <TextView
              android:layout_width="35dp"
              android:layout_height="35dp"
-             android:src="@drawable/ic_back"
+             android:background="@drawable/ic_back"
              android:layout_centerVertical="true"
              android:layout_alignParentEnd="true"
              android:layout_marginEnd="35dp"

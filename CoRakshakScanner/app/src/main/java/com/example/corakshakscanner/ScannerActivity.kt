@@ -110,6 +110,21 @@ class ScannerActivity : AppCompatActivity() {
                                 .addOnCompleteListener {
                                   if (it.isSuccessful)
                                       Toast.makeText(this@ScannerActivity, "$name-$age-$gender-$uid-$formatedTime", Toast.LENGTH_SHORT).show()
+
+                                    var checkIn = checkIn(pnr , name , age , add, vacc, gender, phnNo, formatedTime, uid)
+
+                                    dbRef.child("record/$formatedDate/$pnr").setValue(checkIn).addOnSuccessListener {
+
+                                        Toast.makeText(this@ScannerActivity,"Done",Toast.LENGTH_SHORT).show()
+
+
+                                    }.addOnFailureListener{
+
+                                        Toast.makeText(this@ScannerActivity,"Failed",Toast.LENGTH_SHORT).show()
+
+
+                                    }
+
                                 }
 
 
