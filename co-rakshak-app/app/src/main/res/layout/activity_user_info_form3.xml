@@ -87,7 +87,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:inputType="textPersonName"
                         android:textColor="#B8B8B8" />
 
@@ -108,7 +108,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:inputType="number"
+                    android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:textColor="@color/dark_cyan" />
             </com.google.android.material.textfield.TextInputLayout>

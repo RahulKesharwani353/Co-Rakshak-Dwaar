@@ -6,6 +6,6 @@
         android:color="@color/most_dark_cyan"/>
     <item android:state_checked="true"
         android:color="@color/most_dark_cyan"/>
-    <item android:color="#2890BD"/>
+    <item android:color="@color/dark_cyan"/>
 
 </selector>

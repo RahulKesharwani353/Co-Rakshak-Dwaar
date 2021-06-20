@@ -45,7 +45,8 @@ class VerificationActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
 
-                    DataCheck()
+                    startActivity(Intent(applicationContext, HomeActivity::class.java))
+                    finish()
 // ...
                 } else {
 // Sign in failed, display a message and update the UI
@@ -56,28 +57,6 @@ class VerificationActivity : AppCompatActivity() {
                 }
             }
     }
-    private fun  DataCheck() {
-        currentuser = FirebaseAuth.getInstance().currentUser!!.uid
-        //var postRef = FirebaseDatabase.getInstance().getReference().child("UsersData")
-        val rootRef = FirebaseDatabase.getInstance().reference
-        //val fdbRefer = FirebaseDatabase.getInstance().getReference("UsersData/$currentuser")
-        val userNameRef: DatabaseReference = rootRef.child("UsersData").child(currentuser)
-        val eventListener: ValueEventListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                if (!dataSnapshot.exists()) {
-                    startActivity(Intent(applicationContext, UserInfoFormActivity2::class.java))
-                    finish()
-                }
-                else
-                    startActivity(Intent(applicationContext, HomeActivity::class.java))
-                finish()
-            }
 
-            override fun onCancelled(databaseError: DatabaseError) {
-                Toast.makeText(applicationContext, "OPPs! Something Want Wrong", Toast.LENGTH_LONG).show()
-            }
-        }
-        userNameRef.addListenerForSingleValueEvent(eventListener)
-    }
 
 }

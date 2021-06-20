@@ -6,11 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.cardview.widget.CardView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class HomeFragment : Fragment() {
@@ -27,14 +28,41 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
+       var currentuser: String = FirebaseAuth.getInstance().currentUser!!.uid
+       val ref: DatabaseReference = FirebaseDatabase.getInstance().getReference("UsersData").child(currentuser)
+
+
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         val railway : CardView = view.findViewById(R.id.new_railway_btn)
-
+        var greeting : TextView = view.findViewById(R.id.greeting)
+        var nameGreeting: TextView = view.findViewById(R.id.greeting_name)
+        val sdf = SimpleDateFormat("HH")
+        val currentDate = sdf.format(Date()).toString().toInt()
+        if (currentDate in 1..11){
+            greeting.text = "Good Morning,"
+        }
+        else if (currentDate in 12..17)
+            greeting.text = "Good Afternoon,"
+        else
+            greeting.text = "Good Evening,"
         railway.setOnClickListener {
             var i: Intent = Intent(activity,InstructionActivity::class.java)
             startActivity(i)
         }
+
+        ref.child("profile").addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val name = snapshot.child("name").value.toString()
+                nameGreeting.text = name
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
 
         var bookVacc = view.findViewById<ImageButton>(R.id.book_vacc_btn)
         bookVacc.setOnClickListener {
@@ -43,7 +71,7 @@ class HomeFragment : Fragment() {
             startActivity(i)
         }
         var bookTest = view.findViewById<ImageButton>(R.id.book_test_btn)
-        bookVacc.setOnClickListener {
+        bookTest.setOnClickListener {
             var i: Intent = Intent(activity,WebViewActivity::class.java)
             i.putExtra("site","https://www.icmr.gov.in/cteststrat.html")
             startActivity(i)
@@ -51,6 +79,8 @@ class HomeFragment : Fragment() {
 
         return view
     }
+
+
 
     companion object {
         @JvmStatic

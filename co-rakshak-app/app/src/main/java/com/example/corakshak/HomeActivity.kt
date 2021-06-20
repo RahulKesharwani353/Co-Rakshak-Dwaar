@@ -17,26 +17,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-
-
-//        var railway : Button = findViewById(R.id.new_railway_btn)
-//
-//        var logout : Button = findViewById<Button>(R.id.logout)
-//        logout.setOnClickListener {
-//            Toast.makeText(this, "logout", Toast.LENGTH_SHORT).show()
-//        }
-//
-//        railway.setOnClickListener {
-//            var i: Intent = Intent(this,NewRailwayActivity::class.java)
-//            startActivity(i)
-//        }
-//
-//        var webBtn= findViewById<Button>(R.id.web_page)
-//        webBtn.setOnClickListener {
-//            var i: Intent = Intent(this,WebViewActivity::class.java)
-//            startActivity(i)
-//        }
-
+        DataCheck()
         navigationView = findViewById(R.id.bottom_navigation)
 
         supportFragmentManager.beginTransaction().replace(R.id.body_container, HomeFragment())
@@ -60,5 +41,28 @@ class HomeActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
+    }
+
+
+    private fun  DataCheck() {
+      val  currentuser: String = FirebaseAuth.getInstance().currentUser!!.uid
+        //var postRef = FirebaseDatabase.getInstance().getReference().child("UsersData")
+        val rootRef = FirebaseDatabase.getInstance().reference
+        //val fdbRefer = FirebaseDatabase.getInstance().getReference("UsersData/$currentuser")
+        val userNameRef: DatabaseReference = rootRef.child("UsersData").child(currentuser).child("profile")
+        val eventListener: ValueEventListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (!dataSnapshot.exists()) {
+                    startActivity(Intent(applicationContext, UserInfoFormActivity2::class.java))
+                    finish()
+                }
+                
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(applicationContext, "OPPs! Something Want Wrong", Toast.LENGTH_LONG).show()
+            }
+        }
+        userNameRef.addListenerForSingleValueEvent(eventListener)
     }
 }

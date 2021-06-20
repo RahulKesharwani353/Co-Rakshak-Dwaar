@@ -12,15 +12,15 @@
         android:icon="@drawable/ic_history"
         android:title="history" />
 
-    <item
-        android:id="@+id/nav_QR"
-        android:icon="@drawable/ic_qr_code"
-        android:title="qr" />
 
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/ic_profile"
         android:title="profile" />
 
+    <item
+        android:id="@+id/nav_QR"
+        android:icon="@drawable/ic_setting"
+        android:title="Setting" />
 
 </menu>

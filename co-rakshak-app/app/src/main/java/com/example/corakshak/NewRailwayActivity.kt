@@ -62,7 +62,7 @@ class NewRailwayActivity : AppCompatActivity() {
         val spinner = findViewById<Spinner>(R.id.spinner)
         if (spinner != null) {
             val adapter = ArrayAdapter(this,
-                android.R.layout.simple_spinner_item, languages)
+                android.R.layout.simple_dropdown_item_1line, languages)
             spinner.adapter = adapter
 
             spinner.onItemSelectedListener = object :

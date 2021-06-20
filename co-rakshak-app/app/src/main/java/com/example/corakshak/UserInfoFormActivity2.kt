@@ -26,7 +26,6 @@ class UserInfoFormActivity2 : AppCompatActivity() {
     lateinit var email : TextInputLayout
     // var gender : String ="Male"
     lateinit var city : TextInputLayout
-    lateinit var phnNo : TextInputLayout
     lateinit var currentuser : String
     private lateinit var database : DatabaseReference
     var datefirebase = ""
@@ -58,18 +57,17 @@ class UserInfoFormActivity2 : AppCompatActivity() {
 
         add_btn.setOnClickListener{
 
-            var FirstName = firstName.editText?.text.toString()
-            var LastName = lastName.editText?.text.toString()
+            var FirstName = firstName.editText?.text.toString().trim()
+            var LastName = lastName.editText?.text.toString().trim()
             var Email = email.editText?.text.toString()
             var city = city.editText?.text.toString()
-            //var gender = "Male"
-            var phonenumber = "234234"
+            var Name = "$FirstName $LastName"
 
             database = FirebaseDatabase.getInstance().getReference("UsersData")
 
-            var UserForm = UserForm(FirstName , LastName , datefirebase , Email , city, gender, phonenumber)
+            var UserForm = UserForm(Name , datefirebase , Email , city, currentuser)
 
-            database.child(currentuser).setValue(UserForm).addOnSuccessListener {
+            database.child(currentuser).child("profile").setValue(UserForm).addOnSuccessListener {
 
                 Toast.makeText(this,"Done", Toast.LENGTH_SHORT).show()
 
@@ -100,7 +98,7 @@ class UserInfoFormActivity2 : AppCompatActivity() {
             cal.get(Calendar.YEAR),
             cal.get(Calendar.MONTH),
             cal.get(Calendar.DAY_OF_MONTH))
-        datePickerDialog.datePicker.minDate = System.currentTimeMillis()-1000
+        datePickerDialog.datePicker.maxDate = System.currentTimeMillis()-1000
         datePickerDialog.show()
     }
 }

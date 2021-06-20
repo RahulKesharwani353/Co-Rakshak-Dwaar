@@ -66,7 +66,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:inputType="textPersonName"
                         android:textColor="#B8B8B8" />
 
@@ -86,7 +86,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:inputType="number"
                     android:maxLines="1"
                     android:textColor="@color/dark_cyan" />
@@ -108,7 +108,8 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="80dp"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
+                        android:maxLength="2"
                         android:inputType="textPersonName"
                         android:textColor="#B8B8B8" />
 
@@ -119,9 +120,9 @@
                     android:id="@+id/gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="15dp"
                     android:gravity="center"
-
+                    android:layout_gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <RadioButton
@@ -160,7 +161,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:textColor="#B8B8B8" />
 
@@ -185,14 +186,12 @@
                     />
 
                 <Spinner
-                    android:layout_gravity="end"
-                    android:layout_marginTop="10dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/edittext_bg"
+                    android:layout_gravity="center_vertical"
                     android:id="@+id/spinner"
+                    android:layout_marginStart="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@id/spinner" />
+                    />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -208,7 +207,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:inputType="number"
                     android:textColor="#B8B8B8" />
 
@@ -225,7 +224,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:textColor="#B8B8B8" />
 
