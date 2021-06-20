@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".SettingsActivity">
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="20dp"
+        android:id="@+id/nav_home"
+        android:layout_width="35dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="25sp"
+        android:background="@drawable/ic_baseline_arrow_back_24"
+        android:backgroundTint="@color/dark_cyan"
+        />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Setting"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25sp"
+        android:textColor="@color/dark_cyan"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GENERAL SETTINGS"
+        android:textColor="@color/purple_700"
+        android:layout_marginLeft="25sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="3dp"
+        android:textSize="14dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="25sp"
+        android:background="@drawable/ic_baseline_language_24"
+        android:backgroundTint="@color/dark_cyan"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change Language"
+        android:textColor="@color/black"
+        android:layout_marginLeft="10sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="3dp"
+        android:textSize="17dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#C3C3C3"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="25sp"
+            android:background="@drawable/ic_baseline_contact_support_24"
+            android:backgroundTint="@color/dark_cyan"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About App"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="3dp"
+            android:textSize="17dp"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="COMMUNITY"
+        android:textColor="@color/purple_700"
+        android:layout_marginLeft="25sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="3dp"
+        android:textSize="14dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="25sp"
+            android:background="@drawable/ic_baseline_share_24"
+            android:backgroundTint="@color/dark_cyan"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Share with Friends"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="3dp"
+            android:textSize="17dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUPPPORT US"
+        android:textColor="@color/purple_700"
+        android:layout_marginLeft="25sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="3dp"
+        android:textSize="14dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="25sp"
+            android:background="@drawable/ic_baseline_border_color_24"
+            android:backgroundTint="@color/dark_cyan"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feedback"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="3dp"
+            android:textSize="17dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#C3C3C3"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="25sp"
+            android:background="@drawable/ic_baseline_email_24"
+            android:backgroundTint="@color/dark_cyan"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rate Us"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="3dp"
+            android:textSize="17dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#C3C3C3"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="25sp"
+            android:background="@drawable/ic_baseline_privacy_tip_24"
+            android:backgroundTint="@color/dark_cyan"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Privacy policy"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="3dp"
+            android:textSize="17dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#C3C3C3"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="25sp"
+            android:background="@drawable/ic_baseline_copyright_24"
+            android:backgroundTint="@color/dark_cyan"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Copyright: "
+            android:textColor="@color/black"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="3dp"
+            android:textSize="17dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:text="Co-Rakshak Dwaar crd. 2021 All Rights Reserved."
+            android:textColor="@color/black"
+            android:layout_marginTop="9.5dp"
+            android:layout_marginBottom="3dp"
+            android:textSize="17dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#C3C3C3"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="25sp"
+            android:background="@drawable/ic_baseline_insert_drive_file_24"
+            android:backgroundTint="@color/dark_cyan"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Version:  1.0.0"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="3dp"
+            android:textSize="17dp"/>
+    </LinearLayout>
+
+
+
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

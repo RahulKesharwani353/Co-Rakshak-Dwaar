@@ -29,6 +29,8 @@ class HomeActivity : AppCompatActivity() {
                 R.id.nav_home -> fragment = HomeFragment()
                 R.id.nav_profile -> fragment = ProfileFragment()
                 R.id.nav_history -> fragment = HistoryFragment()
+                R.id.nav_QR -> fragment = SettingFragment()
+
             }
             if (fragment != null) {
                 supportFragmentManager.beginTransaction().replace(R.id.body_container, fragment)

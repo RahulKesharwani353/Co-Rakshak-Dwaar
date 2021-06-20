@@ -47,6 +47,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:id="@+id/settinghome"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:background="@drawable/ic_setting"
