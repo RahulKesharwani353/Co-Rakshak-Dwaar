@@ -58,7 +58,6 @@ class HomeActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, UserInfoFormActivity2::class.java))
                     finish()
                 }
-                
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

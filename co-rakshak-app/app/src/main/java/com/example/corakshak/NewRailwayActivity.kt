@@ -57,7 +57,6 @@ class NewRailwayActivity : AppCompatActivity() {
         //Vacination status
 
         val languages = resources.getStringArray(R.array.vaccinationStatus)
-
         // access the spinner
         val spinner = findViewById<Spinner>(R.id.spinner)
         if (spinner != null) {

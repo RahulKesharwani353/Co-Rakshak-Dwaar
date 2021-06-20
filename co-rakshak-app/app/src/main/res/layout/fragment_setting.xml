@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/setting_fregment"
     tools:context=".SettingFragment">
 
     <ScrollView
@@ -14,17 +15,6 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical">
-
-        <androidx.appcompat.widget.AppCompatButton
-        android:layout_marginTop="20dp"
-        android:id="@+id/nav_home"
-        android:layout_width="35dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="25sp"
-        android:background="@drawable/ic_baseline_arrow_back_24"
-        android:backgroundTint="@color/dark_cyan"
-        />
-
 
 
     <TextView
@@ -73,6 +63,15 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="3dp"
         android:textSize="17dp"/>
+
+        <Spinner
+            android:layout_gravity="center_vertical"
+            android:id="@+id/spinner_stg"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
     </LinearLayout>
 
     <View

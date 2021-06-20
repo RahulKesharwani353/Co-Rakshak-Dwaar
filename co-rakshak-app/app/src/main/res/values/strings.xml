@@ -9,4 +9,9 @@
         <item>Non-Vaccinated</item>
         <item>Fist Dose</item>
     </string-array>
+    <string name="selected_language_item">Your Language Is Changed To:</string>
+    <string-array name="languageChange">
+        <item>English</item>
+        <item>Hindi</item>
+    </string-array>
 </resources>
