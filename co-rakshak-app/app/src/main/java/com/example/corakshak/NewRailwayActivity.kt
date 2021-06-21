@@ -100,6 +100,10 @@ class NewRailwayActivity : AppCompatActivity() {
             addPNR()
         }
 
+            var canceler : Button = findViewById(R.id.cancel)
+            canceler.setOnClickListener {
+                finish()
+            }
 
 
 }

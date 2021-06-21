@@ -34,7 +34,7 @@ class HistoryFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_history, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        adapter = adapter(listdataModel)
+        adapter = adapter(listdataModel,currentuser)
         recyclerView.adapter = adapter
         return view
 

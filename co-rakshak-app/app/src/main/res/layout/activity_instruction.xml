@@ -62,7 +62,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fill the form given in the next page appropriately"
+            android:text="Click on confirm button onec all details of passanger are added"
             android:textSize="15sp"
             android:layout_marginStart="70dp"
             android:textColor="@color/dark_cyan"/>
@@ -83,7 +83,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fill the form given in the next page appropriately"
+            android:text="Respective QR Code will be generated, Save the QR"
             android:textSize="15sp"
             android:layout_marginStart="70dp"
             android:textColor="@color/dark_cyan"/>
@@ -104,7 +104,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fill the form given in the next page appropriately"
+            android:text="Add More passenger if needed"
             android:textSize="15sp"
             android:layout_marginStart="70dp"
             android:textColor="@color/dark_cyan"/>
@@ -127,7 +127,7 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:text="Continue"
-             android:textSize="28sp"
+             android:textSize="20sp"
              android:textStyle="bold"
              android:textColor="@drawable/text_selector"
              android:layout_centerVertical="true"
