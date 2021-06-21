@@ -35,6 +35,7 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         val railway : CardView = view.findViewById(R.id.new_railway_btn)
+        val settingbtn : Button = view.findViewById(R.id.settinghome)
         var greeting : TextView = view.findViewById(R.id.greeting)
         var nameGreeting: TextView = view.findViewById(R.id.greeting_name)
         val sdf = SimpleDateFormat("HH")
@@ -76,6 +77,15 @@ class HomeFragment : Fragment() {
             i.putExtra("site","https://www.icmr.gov.in/cteststrat.html")
             startActivity(i)
         }
+
+        settingbtn.setOnClickListener{
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.body_container, SettingFragment())
+            transaction?.disallowAddToBackStack()
+            transaction?.commit()
+        }
+
+
 
         return view
     }

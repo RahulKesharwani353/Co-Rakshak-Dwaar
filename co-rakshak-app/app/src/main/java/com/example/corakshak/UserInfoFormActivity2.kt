@@ -24,14 +24,13 @@ class UserInfoFormActivity2 : AppCompatActivity() {
     lateinit var add_btn : Button
     lateinit var cancle_btn : Button
     lateinit var email : TextInputLayout
-    // var gender : String ="Male"
     lateinit var city : TextInputLayout
     lateinit var currentuser : String
     private lateinit var database : DatabaseReference
     var datefirebase = ""
-    var gender: String ="Male"
-    //private lateinit var Firebase : FirebaseUser
-
+    lateinit var radioGroup: RadioGroup
+    lateinit var radioButton: RadioButton
+    lateinit var gender : String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,11 +47,17 @@ class UserInfoFormActivity2 : AppCompatActivity() {
         cancle_btn = findViewById(R.id.Dcancel)
         email = findViewById(R.id.DEmail)
         city = findViewById(R.id.DCity)
-        //gender = findViewById(R.id.Dgender);
+        radioGroup = findViewById(R.id.Dgender)
         currentuser = FirebaseAuth.getInstance().currentUser!!.uid
 
         DOB.setOnClickListener{
             selectDate();
+        }
+
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            radioButton = findViewById(checkedId)
+            gender = radioButton.text.toString()
+
         }
 
         add_btn.setOnClickListener{
@@ -65,7 +70,7 @@ class UserInfoFormActivity2 : AppCompatActivity() {
 
             database = FirebaseDatabase.getInstance().getReference("UsersData")
 
-            var UserForm = UserForm(Name , datefirebase , Email , city, currentuser)
+            var UserForm = UserForm(Name , datefirebase , Email , city, currentuser , gender)
 
             database.child(currentuser).child("profile").setValue(UserForm).addOnSuccessListener {
 
