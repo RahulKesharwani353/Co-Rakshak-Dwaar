@@ -21,7 +21,13 @@
         <input type="number" placeholder="Month" style="width: 60px;" id="month">
         /
         <input type="number" placeholder="Year" style="width: 80px;" id="year">
-        <button type="button" class="btn btn-dark" onclick="RetriveBtn()">Retrive Data</button>
+        <button type="button" class="btn btn-dark" onclick="RetriveBtn()">Retrive Data</button><br>
+        <div class="mt-3">
+            Search By PNR: 
+            <input type="number" placeholder="Enter PNR" id="pnr_sort">
+            <button type="button" class="btn btn-dark" onclick="RetriveBtn_pnr()">Retrive Data</button>
+        </div>
+        <div id="wrongDate" style="color: red;">&ensp;</div>
     </div>
     <div class="container mt-3">
         <table class="table">
@@ -57,16 +63,51 @@
         //--------------getdata----------------//
 
         function RetriveBtn(){
+            document.getElementById("wrongDate").innerHTML = "&ensp;";
             var Data_day = document.getElementById("day").value;
             var Data_month = document.getElementById("month").value;
             var Data_year = document.getElementById("year").value;
             SelectAllData(Data_day , Data_month , Data_year);
         }
 
+        function RetriveBtn_pnr(){
+            document.getElementById("wrongDate").innerHTML = "&ensp;";
+            var Data_day = document.getElementById("day").value;
+            var Data_month = document.getElementById("month").value;
+            var Data_year = document.getElementById("year").value;
+            var pnr_search = document.getElementById("pnr_sort").value;
+
+            if(Data_year=="" || Data_month=="" || Data_day=="" || pnr_search==""){
+                alert("Enter valid Date & PNR");
+                return;
+            }
+
+            var firebaseFef = firebase.database().ref("test/"+ Data_day + " "+ Data_month +" "+ Data_year + "/" + pnr_search);
+            firebaseFef.on("value" , function(snapshot){  
+                    if(snapshot.exists()){ 
+                            var CheckInTime = snapshot.val().checkInTime;
+                            var PNR = snapshot.val().pnr;
+                            var Name = snapshot.val().name;
+                            var Temp = snapshot.val().temp;
+                            console.log(PNR)
+                            AddItemToTable(PNR, Name, CheckInTime, Temp);
+                    }
+                    else{
+                        document.getElementById("wrongDate").innerHTML = "*Data does not exits for the provided PNR. Please Enter valid PNR*";
+                    }
+                  
+            });
+
+        }
+
         function SelectAllData(Data_day , Data_month , Data_year){
+            if(Data_year=="" || Data_month=="" || Data_day==""){
+                alert("Enter valid Date");
+                return;
+            }
             var firebaseFef = firebase.database().ref("test/"+ Data_day + " "+ Data_month +" "+ Data_year);
             firebaseFef.on("value" , function(snapshot){
-                
+                if (snapshot.exists()) {
                     snapshot.forEach(  
                         function(currenRecord){
                             var CheckInTime = currenRecord.val().checkInTime;
@@ -76,6 +117,11 @@
                             AddItemToTable(PNR, Name, CheckInTime, Temp);
                         }
                     );
+                }
+                else{
+                    document.getElementById("wrongDate").innerHTML = "*Data does not exits for the provided Date. Please Enter valid date*";
+                }
+                    
                   
             });
         }
