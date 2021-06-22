@@ -10,12 +10,20 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_centerInParent="true">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_logo"
+    android:layout_margin="20dp"
+        android:layout_gravity="center"/>
+
     <TextView
         android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Co Rakshak Scanner\nLogin"
+        android:text="Admin Login"
+        android:textColor="@color/dark_cyan"
         android:textSize="30sp"
         android:gravity="center"
        android:layout_margin="10dp"/>
@@ -24,8 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="ADMIN ID"
-        app:boxStrokeColor="#6372FF"
-        app:hintTextColor = "#6372FF"
+        app:boxStrokeColor="@color/dark_cyan"
+        app:hintTextColor = "@color/dark_cyan"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/admin_id"
 
@@ -35,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:inputType="text"
-            android:textColor="#474747"
+            android:textColor="@color/most_dark_cyan"
             android:textAllCaps="false"
             />
 
@@ -47,8 +55,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="Email"
-        app:boxStrokeColor="#6372FF"
-        app:hintTextColor = "#6372FF"
+        app:boxStrokeColor="@color/dark_cyan"
+        app:hintTextColor = "@color/dark_cyan"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/admin_email"
 
@@ -58,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:inputType="textEmailAddress"
-            android:textColor="#474747"
+            android:textColor="@color/most_dark_cyan"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -68,8 +76,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="Password"
-        app:boxStrokeColor="#6372FF"
-        app:hintTextColor = "#6372FF"
+        app:boxStrokeColor="@color/dark_cyan"
+        app:hintTextColor = "@color/dark_cyan"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/admin_password"
         >
@@ -78,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:inputType="textPassword"
-            android:textColor="#474747"
+            android:textColor="@color/most_dark_cyan"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -88,7 +96,7 @@
         android:layout_height="wrap_content"
         android:text="LOGIN"
         android:layout_gravity="center"
-        android:backgroundTint="#909DE3"
+        android:backgroundTint="@color/dark_cyan"
         android:id="@+id/login"/>
 </LinearLayout>
 </RelativeLayout>
