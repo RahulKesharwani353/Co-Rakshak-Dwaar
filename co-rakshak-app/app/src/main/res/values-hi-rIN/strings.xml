@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Co Rakshak</string>
+    <string name="Let_get_you_Signed_in">आपको साइन इन करने दें</string>
+    <string name="hello_blank_fragment">नमस्ते खाली टुकड़ा</string>
+    <string name="selected_item">चयनित आइटम:</string>
+    <string name="Passenger_Form">यात्री प्रपत्र</string>
+    <string name="first_name">नाम</string>
+    <string name="enter_your_details">अपना विवरण दर्ज करें</string>
+    <string name="last_name">अंतिम नाम</string>
+    <string name="email_address">ईमेल पता</string>
+    <string name="male">पुरुष</string>
+    <string name="female">महिला</string>
+    <string name="other">अन्य</string>
+    <string name="date_of_birth">जन्म की तारीख</string>
+    <string name="city">शहर</string>
+    <string name="cancel">रद्द</string>
+    <string name="confirm">पुष्टि करें</string>
+
+
+
+
+
+    /Instruction Page
+
+    <string name="click_continue_nafter_reading_nthe_instruction">निर्देश पढ़ने के बाद जारी रखें पर क्लिक करें</string>
+    <string name="step_1">चरण 1:</string>
+    <string name="fill_the_form_given_in_the_next_page_appropriately">अगले पृष्ठ में दिए गए फॉर्म को उचित रूप से भरें</string>
+    <string name="step_2">चरण 2:</string>
+    <string name="step_3">चरण 3:</string>
+    <string name="step_4">चरण 4:</string>
+
+
+
+
+
+
+   /LoginPage
+
+    <string name="let_get_you_nsigned_in">आपको साइन इन करने दें.</string>
+    <string name="welcome_to_the_ncorakshak_dwaar_app">कोररक्षक द्वार ऐप में आपका स्वागत है</string>
+    <string name="phone_number">फ़ोन नंबर</string>
+    <string name="sign_in">साइन इन करें</string>
+
+
+
+
+
+
+   /NewRailway
+
+    <string name="passenger_form">यात्री प्रपत्र</string>
+    <string name="pnr_number">पीएनआर नंबर</string>
+    <string name="age">उम्र</string>
+    <string name="address">पता</string>
+
+
+
+
+
+   /QrCode
+
+    <string name="download_qr">क्यूआर डाउनलोड करें</string>
+    <string name="add_more_pnr">अधिक पीएनआर जोड़ें</string>
+    <string name="passenger_qr">यात्री क्यूआर</string>
+
+
+
+
+   /Setting
+
+    <string name="setting">स्थापना</string>
+    <string name="general_settings">सामान्य सेटिंग्स</string>
+    <string name="change_language">भाषा बदलें</string>
+    <string name="about_app">ऐप के बारे में</string>
+    <string name="community">समुदाय</string>
+    <string name="share_with_friends">दोस्तों के साथ बांटें</string>
+    <string name="suppport_us">हमें सहयोग दीजिये</string>
+    <string name="feedback">प्रतिपुष्टि</string>
+    <string name="rate_us">हमें रेटिंग दें</string>
+    <string name="privacy_policy">गोपनीयता नीति</string>
+    <string name="copyright">कॉपीराइट:</string>
+    <string name="co_rakshak_dwaar_crd_2021_all_rights_reserved">कोरक्षक द्वार crd. 2021 सर्वाधिकार सुरक्षित.</string>
+    <string name="version_1_0_0">संस्करण: 1.0.0</string>
+
+
+
+
+   /Verification
+
+    <string name="verify_phone">फ़ोन सत्यापित करें</string>
+    <string name="otp_sent">ओटीपी भेजा गया</string>
+    <string name="verify">सत्यापित करें</string>
+
+
+
+
+   /History
+
+    <string name="travel_history">यात्रा इतिहास</string>
+
+
+   /Home
+
+    <string name="user">उपयोगकर्ता</string>
+    <string name="railway_station">रेलवे स्टेशन</string>
+    <string name="airport">हवाई अड्डा</string>
+    <string name="bus_stop">बस स्टॉप</string>
+    <string name="covid_19_resources">कोविड -19 संसाधन</string>
+    <string name="what_s_your_location">आपका स्थान क्या है?</string>
+    <string name="book_a">एक आरक्षित करें</string>
+    <string name="covid_test">कोविड टेस्ट</string>
+    <string name="book_your">अपना बुक करें</string>
+    <string name="vaccine">टीका</string>
+
+
+
+
+
+
+    /Profile
+    <string name="profile">प्रोफ़ाइल</string>
+    <string name="email">ईमेल :</string>
+    <string name="number">संख्या :</string>
+    <string name="gender">लिंग :</string>
+    <string name="city1">शहर :</string>
+    <string name="edit">संपादित करें</string>
+    <string name="logout">लॉग आउट</string>
+    <string name="date_of_birth_1">जन्म की तारीख :</string>
+
+
+   /Startapp
+    <string name="let_get_your">चलो तुम्हारा</string>
+    <string name="signed_in">साइन इन किया</string>
+    <string name="welcome_to_the">आपका स्वागत है</string>
+    <string name="corakshak_dwaar_app">रक्षक द्वार ऐप</string>
+
+
+
+
+
+
+    <string name="selected_language_item">अपना विवरण दर्ज करें</string>
+
+</resources>

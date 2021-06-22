@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Let get you\nSigned in."
+            android:text="@string/let_get_your"
             android:textSize="30dp"
             android:textColor="@color/dark_cyan"
             android:textStyle="bold"
@@ -33,11 +33,29 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome to the\nCorakshak Dwaar App"
+            android:text="@string/signed_in"
+            android:textSize="30dp"
+            android:textColor="@color/dark_cyan"
+            android:textStyle="bold"
+            android:layout_marginStart="25dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_to_the"
+            android:textSize="20sp"
+            android:textColor="@color/dark_cyan"
+            android:layout_marginStart="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/corakshak_dwaar_app"
             android:textSize="20sp"
             android:textColor="@color/dark_cyan"
 
             android:layout_marginStart="25dp"/>
+
 
 
         <LinearLayout
@@ -66,7 +84,7 @@
                 android:background="@drawable/edittext_bg"
                 android:inputType="phone"
                 android:paddingLeft="10dp"
-                android:hint="Phone Number"
+                android:hint="@string/phone_number"
                 android:textColor="#1F1F1F" />
         </LinearLayout>
 
@@ -86,7 +104,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign in"
+                android:text="@string/sign_in"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 android:textColor="@drawable/text_selector"

@@ -35,11 +35,8 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         val railway : CardView = view.findViewById(R.id.new_railway_btn)
-        val airport : CardView = view.findViewById(R.id.new_airport_btn)
-        val bus : CardView = view.findViewById(R.id.new_bus_btn)
-        val settingbtn : Button = view.findViewById(R.id.settinghome)
-        val greeting : TextView = view.findViewById(R.id.greeting)
-        val nameGreeting: TextView = view.findViewById(R.id.greeting_name)
+        var greeting : TextView = view.findViewById(R.id.greeting)
+        var nameGreeting: TextView = view.findViewById(R.id.greeting_name)
         val sdf = SimpleDateFormat("HH")
         val currentDate = sdf.format(Date()).toString().toInt()
         if (currentDate in 1..11){
@@ -67,33 +64,18 @@ class HomeFragment : Fragment() {
 
         })
 
-        val bookVacc = view.findViewById<ImageButton>(R.id.book_vacc_btn)
+        var bookVacc = view.findViewById<ImageButton>(R.id.book_vacc_btn)
         bookVacc.setOnClickListener {
-            val i: Intent = Intent(activity,WebViewActivity::class.java)
+            var i: Intent = Intent(activity,WebViewActivity::class.java)
             i.putExtra("site","https://www.cowin.gov.in/home")
             startActivity(i)
         }
-        val bookTest = view.findViewById<ImageButton>(R.id.book_test_btn)
+        var bookTest = view.findViewById<ImageButton>(R.id.book_test_btn)
         bookTest.setOnClickListener {
-            val i: Intent = Intent(activity,WebViewActivity::class.java)
+            var i: Intent = Intent(activity,WebViewActivity::class.java)
             i.putExtra("site","https://www.icmr.gov.in/cteststrat.html")
             startActivity(i)
         }
-
-        bus.setOnClickListener {
-            Toast.makeText(activity, "Coming Soon", Toast.LENGTH_SHORT).show()
-        }
-        airport.setOnClickListener {
-            Toast.makeText(activity, "Coming Soon", Toast.LENGTH_SHORT).show()
-        }
-        settingbtn.setOnClickListener{
-            val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction?.replace(R.id.body_container, SettingFragment())
-            transaction?.disallowAddToBackStack()
-            transaction?.commit()
-        }
-
-
 
         return view
     }

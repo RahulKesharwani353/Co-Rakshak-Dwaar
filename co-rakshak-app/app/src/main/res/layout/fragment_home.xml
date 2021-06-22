@@ -72,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/greeting_name"
-                android:text="User"
+                android:text="@string/user"
                 android:textColor="@color/dark_cyan"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -89,7 +89,7 @@
                 android:id="@+id/whatsLocation"
                 android:layout_width="360dp"
                 android:layout_height="wrap_content"
-                android:text="What's your location?"
+                android:text="@string/what_s_your_location"
                 android:textColor="@color/dark_cyan"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -129,7 +129,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Railway Station"
+                    android:text="@string/railway_station"
                     android:textSize="13sp"
                     android:textColor="@color/dark_cyan"
                     android:layout_margin="5dp"
@@ -160,7 +160,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Airport"
+                    android:text="@string/airport"
                     android:textSize="13sp"
                     android:textColor="@color/dark_cyan"
                     android:layout_margin="5dp"
@@ -190,7 +190,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bus Stop"
+                    android:text="@string/bus_stop"
                     android:textSize="13sp"
                     android:textColor="@color/dark_cyan"
                     android:layout_margin="5dp"
@@ -206,7 +206,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="30dp"
-            android:text="Covid-19 Resources"
+            android:text="@string/covid_19_resources"
             android:textColor="@color/dark_cyan"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -222,15 +222,33 @@
             android:layout_height="wrap_content"
             android:src="@drawable/test"
             android:id="@+id/book_test_btn"/>
-        <TextView
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Book a\nCovid Test"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="@color/dark_cyan"
+            android:layout_margin="40dp"
             android:layout_centerVertical="true"
-            android:layout_margin="40dp"/>
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/book_a"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_cyan"
+                android:layout_centerVertical="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/covid_test"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark_cyan"
+                android:layout_centerVertical="true"
+                />
+        </LinearLayout>
+
 
     </RelativeLayout>
         <RelativeLayout
@@ -245,16 +263,31 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/vaccine"
                 android:id="@+id/book_vacc_btn"/>
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Book your\nVaccine"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="@color/dark_cyan"
+                android:layout_margin="40dp"
                 android:layout_centerVertical="true"
-                android:layout_margin="40dp"/>
-
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/book_your"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_cyan"
+                    android:layout_centerVertical="true"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vaccine"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/dark_cyan"
+                    android:layout_centerVertical="true"
+                    />
+            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
 </ScrollView>

@@ -24,7 +24,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Setting"
+        android:text="@string/setting"
         android:textStyle="bold"
         android:textSize="30dp"
         android:layout_marginTop="30dp"
@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GENERAL SETTINGS"
+        android:text="@string/general_settings"
         android:textColor="@color/purple_700"
         android:layout_marginLeft="25sp"
         android:layout_marginTop="10dp"
@@ -59,7 +59,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change Language"
+        android:text="@string/change_language"
         android:textColor="@color/black"
         android:layout_marginLeft="10sp"
         android:layout_marginTop="10dp"
@@ -70,8 +70,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginStart="20sp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="#C3C3C3"/>
@@ -93,7 +92,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="About App"
+            android:text="@string/about_app"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"
@@ -105,7 +104,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="COMMUNITY"
+        android:text="@string/community"
         android:textColor="@color/purple_700"
         android:layout_marginLeft="25sp"
         android:layout_marginTop="20dp"
@@ -129,7 +128,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Share with Friends"
+            android:text="@string/share_with_friends"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"
@@ -140,7 +139,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SUPPPORT US"
+        android:text="@string/suppport_us"
         android:textColor="@color/purple_700"
         android:layout_marginLeft="25sp"
         android:layout_marginTop="20dp"
@@ -164,7 +163,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Feedback"
+            android:text="@string/feedback"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"
@@ -175,9 +174,8 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
-        android:layout_marginStart="20sp"
         android:layout_marginBottom="5dp"
         android:background="#C3C3C3"/>
 
@@ -198,7 +196,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rate Us"
+            android:text="@string/rate_us"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"
@@ -209,8 +207,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20sp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="#C3C3C3"/>
@@ -232,7 +229,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Privacy policy"
+            android:text="@string/privacy_policy"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"
@@ -243,9 +240,8 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
-        android:layout_marginStart="20sp"
         android:layout_marginBottom="5dp"
         android:background="#C3C3C3"/>
 
@@ -266,7 +262,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Copyright: "
+            android:text="@string/copyright"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"
@@ -276,7 +272,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
-            android:text="Co-Rakshak Dwaar crd. 2021 All Rights Reserved."
+            android:text="@string/co_rakshak_dwaar_crd_2021_all_rights_reserved"
             android:textColor="@color/black"
             android:layout_marginTop="9.5dp"
             android:layout_marginBottom="3dp"
@@ -286,8 +282,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20sp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="#C3C3C3"/>
@@ -309,7 +304,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Version:  1.0.0"
+            android:text="@string/version_1_0_0"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"

@@ -23,7 +23,7 @@
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click Continue\nAfter Reading\nthe INSTRUCTION"
+        android:text="@string/click_continue_nafter_reading_nthe_instruction"
         android:textSize="30sp"
         android:textColor="@color/dark_cyan"/>
     <RelativeLayout
@@ -34,14 +34,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Step 1:"
+            android:text="@string/step_1"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/dark_cyan"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="fill the form given in the next page appropriately"
+            android:text="@string/fill_the_form_given_in_the_next_page_appropriately"
             android:textSize="15sp"
          android:layout_marginStart="70dp"
             android:textColor="@color/dark_cyan"/>
@@ -55,14 +55,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Step 2:"
+            android:text="@string/step_2"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/dark_cyan"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Click on confirm button onec all details of passanger are added"
+            android:text="@string/fill_the_form_given_in_the_next_page_appropriately"
             android:textSize="15sp"
             android:layout_marginStart="70dp"
             android:textColor="@color/dark_cyan"/>
@@ -76,14 +76,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Step 3:"
+            android:text="@string/step_3"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/dark_cyan"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Respective QR Code will be generated, Save the QR"
+            android:text="fill the form given in the next page appropriately"
             android:textSize="15sp"
             android:layout_marginStart="70dp"
             android:textColor="@color/dark_cyan"/>
@@ -97,14 +97,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Step 4:"
+            android:text="@string/step_4"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/dark_cyan"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add More passenger if needed"
+            android:text="fill the form given in the next page appropriately"
             android:textSize="15sp"
             android:layout_marginStart="70dp"
             android:textColor="@color/dark_cyan"/>
@@ -127,7 +127,7 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:text="Continue"
-             android:textSize="20sp"
+             android:textSize="28sp"
              android:textStyle="bold"
              android:textColor="@drawable/text_selector"
              android:layout_centerVertical="true"

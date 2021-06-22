@@ -3,19 +3,19 @@
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.cardview.widget.CardView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.google.firebase.database.*
 
 
-    class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
     lateinit var currentuser : String
     lateinit var ref : DatabaseReference
@@ -26,7 +26,7 @@ import com.google.firebase.database.*
     lateinit var Pcity : TextView
     lateinit var pDOB : TextView
     lateinit var btnLog : Button
-    lateinit var firebaseAuth : FirebaseAuth
+    private lateinit var viewOfLayout: View
 
 
 
@@ -42,19 +42,6 @@ import com.google.firebase.database.*
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-//        val auth = FirebaseAuth.getInstance()
-//        val authListener =
-//            AuthStateListener { firebaseAuth ->
-//                val firebaseUser = firebaseAuth.currentUser
-//                if (firebaseUser != null) {
-//                    val userId = firebaseUser.uid
-//                    val userEmail = firebaseUser.email
-//                }
-//            }
-
-
-
 
         currentuser = FirebaseAuth.getInstance().currentUser!!.uid
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
@@ -78,7 +65,6 @@ import com.google.firebase.database.*
 
 
         RetriveData()
-
         // Inflate the layout for this fragment
         return view
     }
@@ -104,15 +90,12 @@ import com.google.firebase.database.*
                 val DOB = dataSnapshot.child("dob").getValue().toString()
                 val city = dataSnapshot.child("city").getValue().toString()
                 val Pnumber = dataSnapshot.child("phonenumber").getValue().toString()
-                val firebaseAuth = FirebaseAuth.getInstance()
-                val firebaseUser = firebaseAuth.currentUser
-                var phonenumber = firebaseUser?.phoneNumber
-                Ppnumber.text = phonenumber
                 Pname.text = name
                 gender.text = Gender
                 email.text = Email
                 pDOB.text = DOB
                 Pcity.text = city
+                Ppnumber.text = Pnumber
 
             }
             override fun onCancelled(error: DatabaseError) {
