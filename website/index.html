@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Co-rakshak | DataBase</title>
       
 </head>
@@ -33,17 +33,26 @@
         <table class="table">
             <thead class="table-dark text-white">
                 <th>Serial Number</th>
-                <th>Time</th>
+                <th>Cheak in Time</th>
                 <th>PNR</th>
                 <th>Name</th>
                 <th>Temperature</th>
+                <th>Phone Noumber</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>Vaccination Status</th>
             </thead>
         <tbody id="tbody1"></tbody>
+        <button onclick="tableToExcel('studtable', 'Students')">Click to Export</button>
     </table>
 </div>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script> 
+
+
+   
 
     <script id="MainScript">
         //------------------Firebase---------------//
@@ -105,7 +114,7 @@
                 alert("Enter valid Date");
                 return;
             }
-            var firebaseFef = firebase.database().ref("test/"+ Data_day + " "+ Data_month +" "+ Data_year);
+            var firebaseFef = firebase.database().ref("record/"+ Data_day + " "+ Data_month +" "+ Data_year);
             firebaseFef.on("value" , function(snapshot){
                 if (snapshot.exists()) {
                     snapshot.forEach(  
@@ -114,7 +123,14 @@
                             var PNR = currenRecord.val().pnr;
                             var Name = currenRecord.val().name;
                             var Temp = currenRecord.val().temp;
-                            AddItemToTable(PNR, Name, CheckInTime, Temp);
+                            var age = currenRecord.val().age;
+                            var address = currenRecord.val().address;
+                            var gender = currenRecord.val().gender;
+                            var phone = currenRecord.val().phone;
+                            var uid = currenRecord.val().uid;
+                            var vaccinationStatus = currenRecord.val().vaccinationStatus;
+
+                            AddItemToTable(PNR, Name, CheckInTime, Temp, age, address, gender, phone, uid, vaccinationStatus);
                         }
                     );
                 }
@@ -128,7 +144,11 @@
         
         //window.onload = SelectAllData();
         var stdNo = 0;
-        function AddItemToTable(PNR, Name, checkInTime, temp){
+        function AddItemToTable(PNR, Name, CheckInTime, Temp, age, address, gender, phone, uid, vaccinationStatus){
+            //alert(CheckInTime)
+
+
+
             var tbody = document.getElementById('tbody1');
             var trow = document.createElement('tr');
             var td1 = document.createElement('td');
@@ -136,13 +156,25 @@
             var td3 = document.createElement('td');
             var td4 = document.createElement('td');
             var td5 = document.createElement('td');
+            var td6 = document.createElement('td');
+            var td7 = document.createElement('td');
+            var td8 = document.createElement('td');
+            var td9 = document.createElement('td');
+            var td10 = document.createElement('td');
+            var td11 = document.createElement('td');
             
 
             td1.innerHTML = ++stdNo;
-            td2.innerHTML = checkInTime;
+            td2.innerHTML = CheckInTime;
             td3.innerHTML = PNR;
             td4.innerHTML = Name;
-            td5.innerHTML = temp;
+            td5.innerHTML = Temp;
+            td6.innerHTML = age;
+            td7.innerHTML = address;
+            td8.innerHTML = gender;
+            td9.innerHTML = phone;
+            //td10.innerHTML = uid;
+            td11.innerHTML = vaccinationStatus;
             
 
             trow.appendChild(td1);
@@ -150,6 +182,12 @@
             trow.appendChild(td3);
             trow.appendChild(td4);
             trow.appendChild(td5);
+            trow.appendChild(td9);
+            trow.appendChild(td8);
+            trow.appendChild(td6);
+            trow.appendChild(td7);
+            trow.appendChild(td11);
+            //trow.appendChild(td10);
 
             tbody.appendChild(trow);
 
