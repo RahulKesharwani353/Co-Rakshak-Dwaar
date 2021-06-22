@@ -19,12 +19,21 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Passenger QR\nCode"
+        android:text="@string/passenger_qr"
         android:textStyle="bold"
         android:textSize="30dp"
         android:layout_marginTop="30dp"
         android:textColor="@color/dark_cyan"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Code"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textColor="@color/dark_cyan"
         android:layout_marginBottom="30dp"/>
+
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,7 +65,7 @@
             android:layout_width="10px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="download QR"
+            android:text="@string/download_qr"
             android:backgroundTint="@color/white"
             android:textColor="@color/dark_cyan"
             android:textStyle="bold"
@@ -74,7 +83,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/dark_cyan"
             android:textColor="@color/white"
-            android:text="Add MORE PNR" />
+            android:text="@string/add_more_pnr" />
     </LinearLayout>
 
 </LinearLayout>

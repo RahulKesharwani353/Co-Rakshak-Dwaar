@@ -29,7 +29,7 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
 
        var currentuser: String = FirebaseAuth.getInstance().currentUser!!.uid
-       val ref: DatabaseReference = FirebaseDatabase.getInstance().getReference("UsersData").child(currentuser)
+       val ref: DatabaseReference = FirebaseDatabase.getInstance().getReference("users").child(currentuser)
 
 
         val view = inflater.inflate(R.layout.fragment_home, container, false)
@@ -43,12 +43,12 @@ class HomeFragment : Fragment() {
         val sdf = SimpleDateFormat("HH")
         val currentDate = sdf.format(Date()).toString().toInt()
         if (currentDate in 1..11){
-            greeting.text = "Good Morning,"
+            greeting.text = getString(R.string.Good_morning)
         }
         else if (currentDate in 12..17)
-            greeting.text = "Good Afternoon,"
+            greeting.text = getString(R.string.Good_Afternoon)
         else
-            greeting.text = "Good Evening,"
+            greeting.text = getString(R.string.Good_Evening)
         railway.setOnClickListener {
             var i: Intent = Intent(activity,InstructionActivity::class.java)
             startActivity(i)

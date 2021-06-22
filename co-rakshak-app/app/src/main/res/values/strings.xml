@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">Co Rakshak</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="Let_get_you_Signed_in">Let get you Signed in</string>
+    <string name="Passenger_Form">Passenger Form</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="selected_item">Selected item:</string>
+    <string name="first_name">First Name</string>
+    <string name="enter_your_details">Enter your details</string>
     <string-array name="vaccinationStatus">
         <item>Vaccine Status</item>
         <item>Vaccinated</item>
@@ -10,6 +14,149 @@
         <item>Fist Dose</item>
     </string-array>
     <string name="selected_language_item">Your Language Is Changed To:</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="city">City</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+
+
+
+    /Instruction Page
+
+    <string name="click_continue_nafter_reading_nthe_instruction">Click Continue\nAfter Reading\nthe INSTRUCTION</string>
+    <string name="step_1">Step 1:</string>
+    <string name="fill_the_form_given_in_the_next_page_appropriately">fill the form given in the next page appropriately</string>
+    <string name="step_2">Step 2:</string>
+    <string name="step_3">Step 3:</string>
+    <string name="step_4">Step 4:</string>
+
+
+    /LoginPage
+
+    <string name="let_get_you_nsigned_in">Let get you\nSigned in.</string>
+    <string name="welcome_to_the_ncorakshak_dwaar_app">Welcome to the\nCorakshak Dwaar App</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="sign_in">Sign in</string>
+
+
+
+
+    /NewRailway
+
+    <string name="passenger_form">Passenger Form</string>
+    <string name="pnr_number">PNR Number</string>
+    <string name="age">Age</string>
+    <string name="address">Address</string>
+
+
+
+
+
+    /QrCode
+
+    <string name="download_qr">download QR</string>
+    <string name="add_more_pnr">Add MORE PNR</string>
+    <string name="passenger_qr">Passenger QR</string>
+
+
+
+
+
+
+    /Setting
+
+    <string name="setting">Setting</string>
+    <string name="general_settings">GENERAL SETTINGS</string>
+    <string name="change_language">Change Language</string>
+    <string name="about_app">About App</string>
+    <string name="community">COMMUNITY</string>
+    <string name="share_with_friends">Share with Friends</string>
+    <string name="suppport_us">SUPPPORT US</string>
+    <string name="feedback">Feedback</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="copyright">Copyright:</string>
+    <string name="co_rakshak_dwaar_crd_2021_all_rights_reserved">Co-Rakshak Dwaar crd. 2021 All Rights Reserved.</string>
+    <string name="version_1_0_0">Version: 1.0.0</string>
+
+
+
+
+
+
+
+
+    /Verification
+
+
+    <string name="verify_phone">Verify Phone</string>
+    <string name="otp_sent">OTP sent</string>
+    <string name="verify">Verify</string>
+
+
+
+
+
+    /History
+
+    <string name="travel_history">Travel History</string>
+
+
+
+
+    /Home
+
+    <string name="user">User</string>
+    <string name="railway_station">Railway Station</string>
+    <string name="airport">Airport</string>
+    <string name="bus_stop">Bus Stop</string>
+    <string name="covid_19_resources">Covid-19 Resources</string>
+    <string name="what_s_your_location">What\'s your location?</string>
+    <string name="book_a">Book a</string>
+    <string name="covid_test">Covid Test</string>
+    <string name="book_your">Book your</string>
+    <string name="vaccine">Vaccine</string>
+
+
+
+    /Profile
+
+    <string name="profile">Profile</string>
+    <string name="email">Email :</string>
+    <string name="number">Number :</string>
+    <string name="gender">Gender :</string>
+    <string name="city1">City :</string>
+    <string name="edit">Edit</string>
+    <string name="logout">Logout</string>
+    <string name="date_of_birth_1">Date of birth :</string>
+
+
+
+    /StartApp
+    <string name="let_get_your">Let get your</string>
+    <string name="signed_in">signed in</string>
+    <string name="welcome_to_the">Welcome to the</string>
+    <string name="corakshak_dwaar_app">corakshak dwaar app</string>
+    <string name="click_on_confirm_button_onec_all_details_of_passanger_are_added">Click on confirm button onec all details of passanger are added</string>
+    <string name="respective_qr_code_will_be_generated_save_the_qr">Respective QR Code will be generated, Save the QR</string>
+    <string name="add_more_passenger_if_needed">Add More passenger if needed</string>
+    <string name="continue_inst">Continue</string>
+
+    /greeting
+    <string name="Good_morning">Good morning,</string>
+    <string name="Good_Afternoon">Good Afternoon,</string>
+    <string name="Good_Evening">Good Evening,</string>
+    <string name="select_date">Select Date</string>
+    <string name="date_card">Date-</string>
+    <string name="pnr_card">PNR-</string>
+    <string name="name_card">Name-</string>
+
+
     <string-array name="languageChange">
         <item>English</item>
         <item>Hindi</item>

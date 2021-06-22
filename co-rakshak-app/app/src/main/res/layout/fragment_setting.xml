@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/setting_fregment"
     tools:context=".SettingFragment">
 
@@ -20,7 +21,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Setting"
+        android:text="@string/setting"
         android:textStyle="bold"
         android:textSize="30dp"
         android:layout_marginTop="30dp"
@@ -33,8 +34,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GENERAL SETTINGS"
-        android:textColor="@color/purple_700"
+        android:text="@string/general_settings"
+        android:textColor="@color/dark_cyan"
         android:layout_marginLeft="25sp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="3dp"
@@ -57,26 +58,43 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change Language"
+        android:text="@string/change_language"
         android:textColor="@color/black"
         android:layout_marginLeft="10sp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="3dp"
         android:textSize="17dp"/>
 
-        <Spinner
-            android:layout_gravity="center_vertical"
-            android:id="@+id/spinner_stg"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="8dp"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/white"
+            android:id="@+id/language_change_btn"
+            android:shadowColor="@color/white"
+            android:textColor="@color/dark_cyan"
+            android:text=""/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/nav_home"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_baseline_arrow_drop_down_24"
+            android:backgroundTint="@color/dark_cyan"
             />
+    </LinearLayout>
+
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginRight="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
@@ -100,7 +118,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="About App"
+            android:text="@string/about_app"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"
@@ -112,8 +130,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="COMMUNITY"
-        android:textColor="@color/purple_700"
+        android:text="@string/community"
+        android:textColor="@color/dark_cyan"
         android:layout_marginLeft="25sp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="3dp"
@@ -136,7 +154,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Share with Friends"
+            android:text="@string/share_with_friends"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"
@@ -147,8 +165,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SUPPPORT US"
-        android:textColor="@color/purple_700"
+        android:text="@string/suppport_us"
+        android:textColor="@color/dark_cyan"
         android:layout_marginLeft="25sp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="3dp"
@@ -171,7 +189,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Feedback"
+            android:text="@string/feedback"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"
@@ -184,6 +202,7 @@
         android:layout_height="1dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="#C3C3C3"/>
@@ -205,7 +224,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rate Us"
+            android:text="@string/rate_us"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"
@@ -216,9 +235,10 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="#C3C3C3"/>
 
@@ -239,7 +259,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Privacy policy"
+            android:text="@string/privacy_policy"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"
@@ -250,6 +270,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginRight="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
@@ -273,7 +294,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Copyright: "
+            android:text="@string/copyright"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"
@@ -283,7 +304,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
-            android:text="Co-Rakshak Dwaar crd. 2021 All Rights Reserved."
+            android:text="@string/co_rakshak_dwaar_crd_2021_all_rights_reserved"
             android:textColor="@color/black"
             android:layout_marginTop="9.5dp"
             android:layout_marginBottom="3dp"
@@ -293,9 +314,10 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:background="#C3C3C3"/>
 
@@ -316,7 +338,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Version:  1.0.0"
+            android:text="@string/version_1_0_0"
             android:textColor="@color/black"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10dp"

@@ -46,7 +46,7 @@ class VerificationActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
 
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
-                    finish()
+                    finishAffinity()
 // ...
                 } else {
 // Sign in failed, display a message and update the UI

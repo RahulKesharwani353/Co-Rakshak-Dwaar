@@ -30,7 +30,7 @@ class UserInfoFormActivity2 : AppCompatActivity() {
     var datefirebase = ""
     lateinit var radioGroup: RadioGroup
     lateinit var radioButton: RadioButton
-    lateinit var gender : String
+    var gender : String = "Male"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,7 +68,7 @@ class UserInfoFormActivity2 : AppCompatActivity() {
             var city = city.editText?.text.toString()
             var Name = "$FirstName $LastName"
 
-            database = FirebaseDatabase.getInstance().getReference("UsersData")
+            database = FirebaseDatabase.getInstance().getReference("users")
 
             var UserForm = UserForm(Name , datefirebase , Email , city, currentuser , gender)
 

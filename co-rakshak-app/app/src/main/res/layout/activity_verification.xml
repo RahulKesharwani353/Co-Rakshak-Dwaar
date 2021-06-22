@@ -24,7 +24,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Verify Phone"
+            android:text="@string/verify_phone"
             android:textSize="30sp"
             android:layout_gravity="center"
             android:textColor="@color/dark_cyan"
@@ -33,7 +33,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OTP sent"
+            android:text="@string/otp_sent"
             android:textSize="20sp"
             android:textColor="@color/dark_cyan"
             android:layout_marginTop="30dp"
@@ -74,7 +74,7 @@ android:layout_gravity="center"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Verify"
+                android:text="@string/verify"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 android:textColor="@drawable/text_selector"

@@ -51,7 +51,7 @@ class HomeActivity : AppCompatActivity() {
         //var postRef = FirebaseDatabase.getInstance().getReference().child("UsersData")
         val rootRef = FirebaseDatabase.getInstance().reference
         //val fdbRefer = FirebaseDatabase.getInstance().getReference("UsersData/$currentuser")
-        val userNameRef: DatabaseReference = rootRef.child("UsersData").child(currentuser).child("profile")
+        val userNameRef: DatabaseReference = rootRef.child("users").child(currentuser).child("profile")
         val eventListener: ValueEventListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (!dataSnapshot.exists()) {

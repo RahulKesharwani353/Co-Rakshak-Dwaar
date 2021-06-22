@@ -95,7 +95,7 @@ import com.google.firebase.database.*
     }
     fun RetriveData(){
 
-        ref = FirebaseDatabase.getInstance().getReference("UsersData").child(currentuser).child("profile")
+        ref = FirebaseDatabase.getInstance().getReference("users").child(currentuser).child("profile")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot){
                 val name = dataSnapshot.child("name").getValue().toString()

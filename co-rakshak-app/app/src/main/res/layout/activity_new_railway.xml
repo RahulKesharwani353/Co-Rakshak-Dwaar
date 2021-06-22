@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/montserrat"
-                android:text="Passenger Form"
+                android:text="@string/passenger_form"
                 android:textColor="@color/dark_cyan"
                 android:textStyle="bold"
                 android:layout_marginTop="40dp"
@@ -41,7 +41,7 @@
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="First Name"
+                    android:hint="@string/first_name"
                     app:boxStrokeColor="@color/dark_cyan"
                     app:hintTextColor="@color/dark_cyan">
 
@@ -59,7 +59,7 @@
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="Last Name"
+                    android:hint="@string/last_name"
                     app:boxStrokeColor="@color/dark_cyan"
                     android:layout_gravity="end"
                     app:hintTextColor="@color/dark_cyan">
@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:hint="PNR Number"
+                android:hint="@string/pnr_number"
                 app:boxStrokeColor="@color/dark_cyan"
                 app:hintTextColor="@color/dark_cyan">
 
@@ -102,7 +102,7 @@
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:hint="Age"
+                    android:hint="@string/age"
                     app:boxStrokeColor="@color/dark_cyan"
                     app:hintTextColor="@color/dark_cyan">
 
@@ -130,19 +130,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:text="Male" />
+                        android:text="@string/male" />
 
                     <RadioButton
                         android:id="@+id/female"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Female" />
+                        android:text="@string/female" />
 
                     <RadioButton
                         android:id="@+id/other"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Other" />
+                        android:text="@string/other" />
 
                 </RadioGroup>
 
@@ -155,7 +155,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:hint="Address"
+                android:hint="@string/address"
                 app:boxStrokeColor="@color/dark_cyan"
                 app:hintTextColor="@color/dark_cyan">
 
@@ -177,7 +177,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:backgroundTint="#FFFFFF"
-                    android:text="Select Date"
+                    android:text="@string/select_date"
                     android:textColor="@color/black"
                     app:icon="@drawable/ic_outline_calendar"
                     app:iconTint = "@color/dark_cyan"
@@ -201,7 +201,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:hint="Phone Number"
+                android:hint="@string/phone_number"
                 app:boxStrokeColor="@color/dark_cyan"
                 app:hintTextColor="@color/dark_cyan">
 
@@ -218,7 +218,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:hint="Email Address"
+                android:hint="@string/email"
                 app:boxStrokeColor="@color/dark_cyan"
                 app:hintTextColor="@color/dark_cyan">
 
@@ -242,7 +242,7 @@
                     android:id="@+id/cancel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cancel"
+                    android:text="@string/cancel"
                     android:textColor="#FF1100"
                     android:backgroundTint="@color/white"
                     android:layout_gravity="center"/>
@@ -253,7 +253,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
                     android:backgroundTint="@color/dark_cyan"
-                    android:text="Confirm"
+                    android:text="@string/confirm"
                     android:textAlignment="textStart"
                     />
             </GridLayout>

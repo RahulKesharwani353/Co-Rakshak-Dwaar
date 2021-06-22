@@ -1,11 +1,17 @@
 package com.example.corakshak
 
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.app.ActivityCompat.recreate
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,10 +27,11 @@ class SettingFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var LanguagemBtn : Button
     var VacinationStatus: String = ""
     var statuts = arrayOf("English", "French", "Spanish")
-    var spinner:Spinner? = null
-    var textView_msg: TextView? = null
+   // var spinner:Spinner? = null
+   // var textView_msg: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,46 +45,73 @@ class SettingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
 
-        //Vacination status
-        val languages = resources.getStringArray(R.array.languageChange)
         var view = inflater.inflate(R.layout.fragment_setting, container, false);
-        val spinner: Spinner = view.findViewById(R.id.spinner_stg)
-            // Create an ArrayAdapter using the string array and a default spinner layout
-        activity?.applicationContext?.let {
-            ArrayAdapter.createFromResource(
-                it,
-                R.array.languageChange,
-                android.R.layout.simple_spinner_item
-            ).also { adapter ->
-                // Specify the layout to use when the list of choices appears
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                // Apply the adapter to the spinner
-                spinner.adapter = adapter
-            }
-        }
-        spinner.onItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>,
-                                        view: View, position: Int, id: Long) {
-                if(position == 0){
-                    VacinationStatus = ""
-                }else{
-                    VacinationStatus = languages[position]
-                    //Toast.makeText(activity, "Please long press the key", Toast.LENGTH_LONG );
-                    Toast.makeText(activity,
-                        getString(R.string.selected_language_item) + " " +
-                                "" + languages[position], Toast.LENGTH_SHORT).show()
+        LanguagemBtn = view.findViewById(R.id.language_change_btn)
+        loadLocate()
+
+        LanguagemBtn.setOnClickListener{
+            val listItmes = arrayOf( "English", "हिंदी")
+
+            val mBuilder = AlertDialog.Builder(activity)
+            mBuilder.setTitle("Choose Language")
+            mBuilder.setSingleChoiceItems(listItmes, -1) { dialog, which ->
+                if (which == 0) {
+                    setLocate("en")
+                    activity?.recreate()
+//                    LanguagemBtn.text = "English"
+
+                } else if (which == 1) {
+                    setLocate("hi")
+                    activity?.recreate()
+//                    LanguagemBtn.text = "हिंदी"
                 }
-            }
 
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // write code to perform some action
+                dialog.dismiss()
+            }
+            val mDialog = mBuilder.create()
+
+            mDialog.show()
+        }
+            return view
+    }
+
+
+
+    private fun setLocate(Lang: String) {
+
+        val locale = Locale(Lang)
+
+        Locale.setDefault(locale)
+
+        val config = Configuration()
+
+        config.locale = locale
+        activity?.baseContext?.resources?.updateConfiguration(config,
+            activity?.baseContext?.resources?.displayMetrics
+        )
+
+        val editor = activity?.getSharedPreferences("Settings", Context.MODE_PRIVATE)?.edit()
+        editor?.putString("My_Lang", Lang)
+        editor?.apply()
+
+    }
+
+    private fun loadLocate() {
+        val sharedPreferences = activity?.getSharedPreferences("Settings", Activity.MODE_PRIVATE)
+        val language = sharedPreferences?.getString("My_Lang", "")
+        language?.let { setLocate(it)
+            if (it == "en") {
+                LanguagemBtn.text = "English"
+
+            } else if (it == "hi") {
+                LanguagemBtn.text = "हिंदी"
             }
         }
 
-        return view
+
     }
 
     companion object {

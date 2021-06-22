@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Co-rakshak | Login</title>
+</head>
+<body>
+    <h1 class="mt-4 mb-4 text-center" style="font-family: 'Montserrat', sans-serif;">Co-Rakshak DataBase</h1>
+
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-5 border shadow rounded p-3">
+                <h1 class="font-weight-lighter text-center">LOGIN</h1>
+                <form method="POST" class="text-center">
+                    <input placeholder="Email id" id="email" class="mt-4 mb-3" style="width: 260px;" type="email"><br>
+                    <input placeholder="Password" id="password" class="mb-2" type="password" style="width: 260px;"><br>
+                    <div id="wrongLogin" style="color: red;">&ensp;</div>
+                    <button class="btn btn-outline-secondary  btn-block mt-3" type="button" id="btn_login" onclick="login_btn()">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script id="MainScript">
+        function login_btn() {
+            var Data_day = document.getElementById("email").value;
+            var Data_month = document.getElementById("password").value;
+            if(Data_day === "admin@gmail.com" && Data_month === "admin123"){
+                window.location.href = "./index.html";
+            }
+            else{
+                document.getElementById("wrongLogin").innerHTML = "Please Enter Valid Email & Password";
+            }
+        }
+    </script>
+    
+</body>
+</html>
