@@ -134,13 +134,13 @@ class NewRailwayActivity : AppCompatActivity() {
     }
 
     private fun addPNR() {
-        val PNR = pnrNo.editText?.text.toString()
-        var fName = FName.editText?.text.toString()
-        var lName = LName.editText?.text.toString()
-        var Age = age.editText?.text.toString()
-        var Address = address.editText?.text.toString()
-        var Emailid = emailid.editText?.text.toString()
-        var PhnNo = phnNo.editText?.text.toString()
+        val PNR = pnrNo.editText?.text.toString().trim()
+        var fName = FName.editText?.text.toString().trim()
+        var lName = LName.editText?.text.toString().trim()
+        var Age = age.editText?.text.toString().trim()
+        var Address = address.editText?.text.toString().trim()
+        var Emailid = emailid.editText?.text.toString().trim()
+        var PhnNo = phnNo.editText?.text.toString().trim()
         var Name : String = "$fName $lName"
 
         if (PNR.isEmpty() ){

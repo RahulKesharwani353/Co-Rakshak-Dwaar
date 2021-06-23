@@ -68,7 +68,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
-                        android:textColor="#B8B8B8" />
+                        android:textColor="@color/dark_cyan" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,7 +111,7 @@
                         android:layout_height="wrap_content"
                         android:maxLength="2"
                         android:inputType="textPersonName"
-                        android:textColor="#B8B8B8" />
+                        android:textColor="@color/dark_cyan" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -163,7 +163,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:textColor="#B8B8B8" />
+                    android:textColor="@color/dark_cyan" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -178,7 +178,7 @@
                     android:layout_margin="5dp"
                     android:backgroundTint="#FFFFFF"
                     android:text="@string/select_date"
-                    android:textColor="@color/black"
+                    android:textColor="@color/dark_cyan"
                     app:icon="@drawable/ic_outline_calendar"
                     app:iconTint = "@color/dark_cyan"
                     app:iconGravity="end"
@@ -209,7 +209,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:textColor="#B8B8B8" />
+                    android:maxLength="10"
+                    android:textColor="@color/dark_cyan" />
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -225,8 +226,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:textColor="#B8B8B8" />
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/dark_cyan"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

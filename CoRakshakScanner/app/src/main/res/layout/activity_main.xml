@@ -58,7 +58,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/dark_cyan"
                 android:id="@+id/webView"
-                android:text="Search In Database"
+                android:text="View All Bookings"
                 android:textColor="@color/white"/>
         </androidx.cardview.widget.CardView>
 

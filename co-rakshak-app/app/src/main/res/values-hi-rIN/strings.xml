@@ -79,7 +79,7 @@
 
     /card
     <string name="date_card">तारीख-</string>
-    <string name="pnr_card">पी एन आर-</string>
+    <string name="pnr_card">पी.एन.आर-</string>
     <string name="name_card">नाम-</string>
 
 
@@ -134,10 +134,10 @@
     <string name="bus_stop">बस स्टॉप</string>
     <string name="covid_19_resources">कोविड -19 संसाधन</string>
     <string name="what_s_your_location">आपका स्थान क्या है?</string>
-    <string name="book_a">एक आरक्षित करें</string>
-    <string name="covid_test">कोविड टेस्ट</string>
-    <string name="book_your">अपना बुक करें</string>
-    <string name="vaccine">टीका</string>
+    <string name="book_a">एक कोविड टेस्ट</string>
+    <string name="covid_test">आरक्षित करें</string>
+    <string name="book_your">अपना टीका</string>
+    <string name="vaccine">बुक करें</string>
 
 
 
