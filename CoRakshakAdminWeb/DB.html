@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +7,9 @@
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Co-rakshak | DataBase</title>
       
 </head>
@@ -30,10 +32,10 @@
         <div id="wrongDate" style="color: red;">&ensp;</div>
     </div>
     <div class="container mt-3">
-        <table class="table">
+        <table class="table" id="table">
             <thead class="table-dark text-white">
                 <th>Serial Number</th>
-                <th>Cheak in Time</th>
+                <th>Time</th>
                 <th>PNR</th>
                 <th>Name</th>
                 <th>Temperature</th>
@@ -44,15 +46,12 @@
                 <th>Vaccination Status</th>
             </thead>
         <tbody id="tbody1"></tbody>
-        <button onclick="tableToExcel('studtable', 'Students')">Click to Export</button>
     </table>
+    <button id="btnExport" onclick="exportReportToExcel(this)">EXPORT REPORT</butto
 </div>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script> 
-
-
-   
 
     <script id="MainScript">
         //------------------Firebase---------------//
@@ -70,11 +69,13 @@
                 firebase.initializeApp(firebaseConfig);
                 //firebase.analytics();
         //--------------getdata----------------//
+        var Data_day
+        var Data_month
 
         function RetriveBtn(){
             document.getElementById("wrongDate").innerHTML = "&ensp;";
-            var Data_day = document.getElementById("day").value;
-            var Data_month = document.getElementById("month").value;
+             Data_day = document.getElementById("day").value;
+             Data_month = document.getElementById("month").value;
             var Data_year = document.getElementById("year").value;
             SelectAllData(Data_day , Data_month , Data_year);
         }
@@ -91,15 +92,21 @@
                 return;
             }
 
-            var firebaseFef = firebase.database().ref("test/"+ Data_day + " "+ Data_month +" "+ Data_year + "/" + pnr_search);
+            var firebaseFef = firebase.database().ref("record/"+ Data_day + " "+ Data_month +" "+ Data_year + "/" + pnr_search);
             firebaseFef.on("value" , function(snapshot){  
                     if(snapshot.exists()){ 
                             var CheckInTime = snapshot.val().checkInTime;
                             var PNR = snapshot.val().pnr;
                             var Name = snapshot.val().name;
                             var Temp = snapshot.val().temp;
+                            var age = currenRecord.val().age;
+                            var address = currenRecord.val().address;
+                            var gender = currenRecord.val().gender;
+                            var phone = currenRecord.val().phone;
+                            var uid = currenRecord.val().uid;
+                            var vaccinationStatus = currenRecord.val().vaccinationStatus;
                             console.log(PNR)
-                            AddItemToTable(PNR, Name, CheckInTime, Temp);
+                            AddItemToTable(PNR, Name, CheckInTime, Temp, age, address, gender, phone, uid, vaccinationStatus);
                     }
                     else{
                         document.getElementById("wrongDate").innerHTML = "*Data does not exits for the provided PNR. Please Enter valid PNR*";
@@ -129,9 +136,7 @@
                             var phone = currenRecord.val().phone;
                             var uid = currenRecord.val().uid;
                             var vaccinationStatus = currenRecord.val().vaccinationStatus;
-
-                            AddItemToTable(PNR, Name, CheckInTime, Temp, age, address, gender, phone, uid, vaccinationStatus);
-                        }
+                            AddItemToTable(PNR, Name, CheckInTime, Temp, age, address, gender, phone, uid, vaccinationStatus);                        }
                     );
                 }
                 else{
@@ -145,10 +150,6 @@
         //window.onload = SelectAllData();
         var stdNo = 0;
         function AddItemToTable(PNR, Name, CheckInTime, Temp, age, address, gender, phone, uid, vaccinationStatus){
-            //alert(CheckInTime)
-
-
-
             var tbody = document.getElementById('tbody1');
             var trow = document.createElement('tr');
             var td1 = document.createElement('td');
@@ -162,6 +163,7 @@
             var td9 = document.createElement('td');
             var td10 = document.createElement('td');
             var td11 = document.createElement('td');
+            
             
 
             td1.innerHTML = ++stdNo;
@@ -193,22 +195,16 @@
 
         }
 
+        function exportReportToExcel() {
+  let table = document.getElementsByTagName("table"); // you can use document.getElementById('tableId') as well by providing id to the table tag
+  TableToExcel.convert(table[0], { // html code may contain multiple tables so here we are refering to 1st table tag
+    name: Data_day+"_"+Data_month+".xlsx", // fileName you could use any name
+    sheet: {
+      name: 'Sheet 1' // sheetName
+    }
+  });
+}
         
     </script>
-    <!-- <script>
-    $(function(){
-        var dtToday = new Date();
-        var month = dtToday.getMonth() + 1;
-        var Day = dtToday.getDate();
-        var Year = dtToday.getFullYear();
-        if(month<0){
-            month = '0' + month.toString();
-        }
-        if(day < 10){
-            day = '0' + dat.toString();
-            var maxDate = Year + '-' + month + '-' + day;
-            $('.txtDate').attr('max', maxDate);
-        }
-    })</script> -->
 </body>
 </html>
