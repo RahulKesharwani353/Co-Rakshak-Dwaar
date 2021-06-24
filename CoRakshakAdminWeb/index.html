@@ -18,11 +18,21 @@
 
     <div class="container">
         <div class="row justify-content-center mt-5">
-            <div class="col-5 border shadow rounded p-3">
+            <div class="col-xl-5 col-10 border shadow rounded p-3">
                 <h1 class="font-weight-lighter text-center">LOGIN</h1>
                 <form method="POST" class="text-center">
-                    <input placeholder="Email id" id="email" class="mt-4 mb-3" style="width: 260px;" type="email"><br>
-                    <input placeholder="Password" id="password" class="mb-2" type="password" style="width: 260px;"><br>
+                    <div class="row">
+                        <div class="col-25 mt-4 mb-3">
+                          <label for="fname">Email Id: </label>
+                          <input type="text" id="email" name="firstname" type="email" placeholder="Your Email">
+                        </div>
+                        <div class="col-25 mb-2">
+                            <label for="fname">Password: </label>
+                            <input type="text" id="password" type="password" name="firstname" placeholder="Enter Passsword">
+                          </div>
+                      </div>
+                    <!-- <input placeholder="Email id" id="email" class="mt-4 mb-3"  type="email"><br>
+                    <input placeholder="Password" id="password" class="mb-2" type="password"><br> -->
                     <div id="wrongLogin" style="color: red;">&ensp;</div>
                     <button class="btn btn-outline-secondary  btn-block mt-3" type="button" id="btn_login" onclick="login_btn()">Login</button>
                 </form>
