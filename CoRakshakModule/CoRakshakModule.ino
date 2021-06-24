@@ -3,7 +3,7 @@
 #include <Adafruit_MLX90614.h>
 #include <Adafruit_GFX.h>       // Include core graphics library for the display
 #include <Adafruit_SSD1306.h>   // Include Adafruit_SSD1306 library to drive the display
-#include <Fonts/FreeMonoBold18pt7b.h>  // Add a custom font
+#include <Fonts/FreeMonoBold12pt7b.h>  // Add a custom font
 #include <SPI.h>
 #include <Wire.h>
 
@@ -17,6 +17,7 @@
 #define OLED_RESET     -1
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 
+#define buzz D8
 
 int fireStatus = 1;
 String uid = "",pnr= "",date = "", path = "";
@@ -84,25 +85,25 @@ void loop() {
 
       path = "record/"+date+"/"+pnr+"/temp";
       Serial.println("Path : "+path);
-      digitalWrite(D7, HIGH);
       /*Greeting*/
       greeting1();
       delay(3000);
       Serial.println("Please Hold Your Hand For 10 sec to Measure Temprature.... ");
 
-      digitalWrite(D7, HIGH);
+      
       /*After Getting Details Measure Temprature*/
       for(int i = 0 ; i<10;)
       {
         c_temp =0;
-        delay(1000);
+        delay(800);
         c_temp = mlx.readObjectTempF();
         c_temp = c_temp + 6;
         Serial.println("F Temp : ");Serial.print(c_temp);
-        if(c_temp > 95 && c_temp<100){
+        if(c_temp >= 95 && c_temp<100){
           disp_temp(c_temp);
           avg = c_temp + avg;
           i++;
+          noTone(buzz);
         }
         else if(c_temp>=100 && c_temp<110){
           disp_temp(c_temp);
@@ -110,14 +111,22 @@ void loop() {
           i++;
           
       //  buz();
+      tone(buzz,500);
         }
-        
+        else if(c_temp<95)
+        disp_temp(c_temp);
+      noTone(buzz);
       }
       avg = avg/10;
       Serial.println("Avg Temp : ");Serial.print(avg);
       Firebase.setFloat(fbWrite,path,avg);
       Firebase.setInt(fbWrite,"/controller/module1/status",0);
-      disp_thank();
+       noTone(buzz);
+       digitalWrite(D7, HIGH);
+       sanet();
+       digitalWrite(D7, LOW);
+       disp_thank();
+ 
       delay(2000);
       display.clearDisplay();
     }
@@ -151,14 +160,14 @@ void disp_temp(float temp){
   // Print temperature
   char string[10];  // Create a character array of 10 characters
   // Convert float to a string:
-  dtostrf(temp, 3, 0, string);  // (<variable>,<amount of digits we are going to use>,<amount of decimal digits>,<string name>)
+  dtostrf(temp, 3, 1, string);  // (<variable>,<amount of digits we are going to use>,<amount of decimal digits>,<string name>)
   
-  display.setFont(&FreeMonoBold18pt7b);  // Set a custom font
-  display.setCursor(20,50);  // (x,y)
+  display.setFont(&FreeMonoBold12pt7b);  // Set a custom font
+  display.setCursor(30,50);  // (x,y)
   display.println(string);  // Text or value to print
-  display.setCursor(90,50);  // (x,y)
+  display.setCursor(110,50);  // (x,y)
   display.println("F");  // Text or value to print
-  display.setCursor(77,32);  // (x,y)
+  display.setCursor(95,32);  // (x,y)
   display.println(".");  // Text or value to print
   
   // Draw a filled circle:
@@ -223,4 +232,15 @@ void greeting1(void) {
   display.setCursor(0,5);
   display.println(("Please Hold Your Hand to Measure Temprature.... "));;
   display.display();      // Show initial text
+}
+
+void sanet(){
+    display.clearDisplay();
+  display.setTextSize(2); // Draw 2X-scale text
+  display.setTextColor(SSD1306_WHITE);
+  display.setFont();
+  display.setCursor(5, 30);
+  display.println(("Sanitizing"));;
+  display.display();      // Show initial text
+  delay(4000);
 }
