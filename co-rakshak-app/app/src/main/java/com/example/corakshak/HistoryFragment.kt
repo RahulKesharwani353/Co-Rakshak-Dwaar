@@ -42,7 +42,7 @@ class HistoryFragment : Fragment() {
 
     fun addData(){
         database = FirebaseDatabase.getInstance().getReference("users/$currentuser/booking");
-        database!!.orderBy("name", Direction.DESCENDING).addValueEventListener(object : ValueEventListener {
+        database!!.orderByChild("date").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (dataSnapshot in snapshot.children) {
                     val booking = dataSnapshot.getValue(dataModel::class.java)
