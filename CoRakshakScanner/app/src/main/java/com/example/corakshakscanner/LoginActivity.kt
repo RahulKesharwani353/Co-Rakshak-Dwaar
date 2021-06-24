@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var adminPassword : TextInputLayout
     lateinit var firebaseDBRef: DatabaseReference
      var id: String = ""
-    private var loadingBar: ProgressDialog? = null
+        private var loadingBar: ProgressDialog? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)

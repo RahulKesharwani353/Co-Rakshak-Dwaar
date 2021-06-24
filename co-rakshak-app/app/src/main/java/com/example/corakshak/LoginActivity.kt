@@ -1,5 +1,6 @@
 package com.example.corakshak
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -22,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var storedVerificationId:String
     lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
-
+    private var loadingBar: ProgressDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
         val Login=findViewById<CardView>(R.id.loginBtn)
 
 
+        loadingBar=  ProgressDialog(this);
         val currentUserss = auth.currentUser
         if(currentUserss != null) {
             startActivity(Intent(applicationContext, HomeActivity::class.java))
@@ -50,10 +52,12 @@ class LoginActivity : AppCompatActivity() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 startActivity(Intent(applicationContext, HomeActivity::class.java))
                 finishAffinity()
+                loadingBar!!.dismiss()
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
                 Toast.makeText(applicationContext, "Failed", Toast.LENGTH_LONG).show()
+                loadingBar!!.dismiss()
             }
 
             override fun onCodeSent(
@@ -65,9 +69,10 @@ class LoginActivity : AppCompatActivity() {
                 storedVerificationId = verificationId
                 resendToken = token
 
-                var intent = Intent(applicationContext,VerificationActivity::class.java)
+                val intent = Intent(applicationContext,VerificationActivity::class.java)
                 intent.putExtra("storedVerificationId",storedVerificationId)
                 startActivity(intent)
+                loadingBar!!.dismiss()
             }
         }
 
@@ -79,6 +84,11 @@ class LoginActivity : AppCompatActivity() {
         var number=mobileNumber.text.toString().trim()
 
         if(!number.isEmpty()){
+            loadingBar?.setTitle("Sending OTP")
+            loadingBar?.setMessage("please Wait")
+            loadingBar?.setCanceledOnTouchOutside(false)
+            loadingBar?.show()
+
             number= "+91$number"
             sendVerificationcode (number)
         }else{
