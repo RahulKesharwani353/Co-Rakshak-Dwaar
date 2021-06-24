@@ -40,7 +40,6 @@
 
 
     /Instruction Page
-
     <string name="click_continue_nafter_reading_nthe_instruction">निर्देश पढ़ने के बाद जारी रखें पर क्लिक करें</string>
     <string name="step_1">चरण 1:</string>
     <string name="fill_the_form_given_in_the_next_page_appropriately">अगले पृष्ठ में दिए गए फॉर्म को उचित रूप से भरें</string>
@@ -53,24 +52,14 @@
     <string name="step_4">चरण 4:</string>
 
 
-
-
-
-
     /LoginPage
-
     <string name="let_get_you_nsigned_in">आपको साइन इन करने दें.</string>
     <string name="welcome_to_the_ncorakshak_dwaar_app">कोररक्षक द्वार ऐप में आपका स्वागत है</string>
     <string name="phone_number">फ़ोन नंबर</string>
     <string name="sign_in">साइन इन करें</string>
 
 
-
-
-
-
     /NewRailway
-
     <string name="passenger_form">यात्री प्रपत्र</string>
     <string name="pnr_number">पीएनआर नंबर</string>
     <string name="age">उम्र</string>
@@ -83,18 +72,13 @@
     <string name="name_card">नाम-</string>
 
 
-
     /QrCode
-
     <string name="download_qr">क्यूआर डाउनलोड करें</string>
     <string name="add_more_pnr">अधिक पीएनआर जोड़ें</string>
     <string name="passenger_qr">यात्री क्यूआर</string>
 
 
-
-
     /Setting
-
     <string name="setting">स्थापना</string>
     <string name="general_settings">सामान्य सेटिंग्स</string>
     <string name="change_language">भाषा बदलें</string>
@@ -109,25 +93,15 @@
     <string name="co_rakshak_dwaar_crd_2021_all_rights_reserved">कोरक्षक द्वार crd. 2021 सर्वाधिकार सुरक्षित.</string>
     <string name="version_1_0_0">संस्करण: 1.0.0</string>
 
-
-
-
     /Verification
-
     <string name="verify_phone">फ़ोन सत्यापित करें</string>
     <string name="otp_sent">ओटीपी भेजा गया</string>
     <string name="verify">सत्यापित करें</string>
 
-
-
-
     /History
-
     <string name="travel_history">यात्रा इतिहास</string>
 
-
     /Home
-
     <string name="user">उपयोगकर्ता</string>
     <string name="railway_station">रेलवे स्टेशन</string>
     <string name="airport">हवाई अड्डा</string>
@@ -138,10 +112,6 @@
     <string name="covid_test">आरक्षित करें</string>
     <string name="book_your">अपना टीका</string>
     <string name="vaccine">बुक करें</string>
-
-
-
-
 
 
     /Profile
@@ -160,11 +130,6 @@
     <string name="signed_in">साइन इन किया</string>
     <string name="welcome_to_the">आपका स्वागत है</string>
     <string name="corakshak_dwaar_app">रक्षक द्वार ऐप</string>
-
-
-
-
-
 
     <string name="selected_language_item">अपना विवरण दर्ज करें</string>
 

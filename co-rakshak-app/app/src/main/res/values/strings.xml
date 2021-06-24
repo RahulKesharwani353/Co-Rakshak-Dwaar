@@ -11,7 +11,7 @@
         <item>Vaccine Status</item>
         <item>Vaccinated</item>
         <item>Non-Vaccinated</item>
-        <item>Fist Dose</item>
+        <item>First Dose</item>
     </string-array>
     <string name="selected_language_item">Your Language Is Changed To:</string>
     <string name="last_name">Last Name</string>
@@ -24,10 +24,7 @@
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
 
-
-
     /Instruction Page
-
     <string name="click_continue_nafter_reading_nthe_instruction">Click Continue\nAfter Reading\nthe INSTRUCTION</string>
     <string name="step_1">Step 1:</string>
     <string name="fill_the_form_given_in_the_next_page_appropriately">fill the form given in the next page appropriately</string>
@@ -35,41 +32,27 @@
     <string name="step_3">Step 3:</string>
     <string name="step_4">Step 4:</string>
 
-
     /LoginPage
-
     <string name="let_get_you_nsigned_in">Let get you\nSigned in.</string>
     <string name="welcome_to_the_ncorakshak_dwaar_app">Welcome to the\nCorakshak Dwaar App</string>
     <string name="phone_number">Phone Number</string>
     <string name="sign_in">Sign in</string>
 
 
-
-
     /NewRailway
-
     <string name="passenger_form">Passenger Form</string>
     <string name="pnr_number">PNR Number</string>
     <string name="age">Age</string>
     <string name="address">Address</string>
 
 
-
-
-
     /QrCode
-
     <string name="download_qr">download QR</string>
     <string name="add_more_pnr">Add MORE PNR</string>
     <string name="passenger_qr">Passenger QR</string>
 
 
-
-
-
-
     /Setting
-
     <string name="setting">Setting</string>
     <string name="general_settings">GENERAL SETTINGS</string>
     <string name="change_language">Change Language</string>
@@ -85,32 +68,17 @@
     <string name="version_1_0_0">Version: 1.0.0</string>
 
 
-
-
-
-
-
-
     /Verification
-
-
     <string name="verify_phone">Verify Phone</string>
     <string name="otp_sent">OTP sent</string>
     <string name="verify">Verify</string>
 
 
-
-
-
     /History
-
     <string name="travel_history">Travel History</string>
 
 
-
-
     /Home
-
     <string name="user">User</string>
     <string name="railway_station">Railway Station</string>
     <string name="airport">Airport</string>
@@ -123,9 +91,7 @@
     <string name="vaccine">Vaccine</string>
 
 
-
     /Profile
-
     <string name="profile">Profile</string>
     <string name="email">Email :</string>
     <string name="number">Number :</string>
@@ -134,7 +100,6 @@
     <string name="edit">Edit</string>
     <string name="logout">Logout</string>
     <string name="date_of_birth_1">Date of birth :</string>
-
 
 
     /StartApp

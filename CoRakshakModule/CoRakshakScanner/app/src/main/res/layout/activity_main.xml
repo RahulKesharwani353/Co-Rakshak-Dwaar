@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/bg_drop"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/ic_logowhite"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:layout_centerInParent="true">
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="10dp"
+            android:translationZ="5dp"
+            android:layout_weight="1"
+            >
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/dark_cyan"
+                android:id="@+id/scan_btn"
+                android:text="SCAN QR"
+                android:textColor="@color/white"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.legacy.widget.Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="10dp"
+            android:translationZ="5dp"
+            android:layout_weight="1"
+            >
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/dark_cyan"
+                android:id="@+id/webView"
+                android:text="View All Bookings"
+                android:textColor="@color/white"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.legacy.widget.Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="10dp"
+            android:translationZ="5dp"
+            android:layout_weight="1"
+            android:background="@color/black"
+            >
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/dark_cyan"
+                android:id="@+id/logout"
+                android:text="Logout"
+                android:textColor="@color/white"/>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</RelativeLayout>

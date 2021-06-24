@@ -14,22 +14,25 @@
       
 </head>
 <body>
-    <h1 class="mt-4 mb-4 text-center" style="font-family: 'Montserrat', sans-serif;">Co-Rakshak DataBase Viewer</h1>
+    
+    <h1 class="mt-4 mb-4 text-center" style="font-family: 'Montserrat', sans-serif; text-shadow: 2px 2px 8px #c4c3c3;">Co-Rakshak DataBase Spectator</h1><br>
 
     <div class="container">
-        Please Enter the Date:
-        <input type="number"  placeholder="Day" style="width: 60px;" id="day">
-        /
-        <input type="number" placeholder="Month" style="width: 60px;" id="month">
-        /
-        <input type="number" placeholder="Year" style="width: 80px;" id="year">
-        <button type="button" class="btn btn-dark" onclick="RetriveBtn()">Retrive Data</button><br>
-        <div class="mt-3">
-            Search By PNR: 
-            <input type="number" placeholder="Enter PNR" id="pnr_sort">
-            <button type="button" class="btn btn-dark" onclick="RetriveBtn_pnr()">Retrive Data</button>
-        </div>
-        <div id="wrongDate" style="color: red;">&ensp;</div>
+        <form action="/action_page.php">
+            Please Enter the Date:
+            <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="2"  placeholder="Day" style="width: 60px;" id="day">
+            /
+            <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="2" placeholder="Month" style="width: 60px;" id="month">
+            /
+            <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"  placeholder="Year" maxlength="4" style="width: 80px;" id="year">
+            <button type="button" class="btn btn-dark" onclick="RetriveBtn()">Retrive Data</button><br>
+            <div class="mt-3">
+                Search By PNR: 
+                <input type="number" placeholder="Enter PNR" id="pnr_sort">
+                <button type="button" class="btn btn-dark" onclick="RetriveBtn_pnr()">Retrive Data</button>
+            </div>
+            <div id="wrongDate" style="color: red;">&ensp;</div>
+        </form>
     </div>
     <div class="container mt-3">
         <table class="table" id="table">
@@ -47,7 +50,7 @@
             </thead>
         <tbody id="tbody1"></tbody>
     </table>
-    <button id="btnExport" onclick="exportReportToExcel(this)">EXPORT REPORT</butto
+        <button id="btnExport" style="visibility: hidden;"  onclick="exportReportToExcel(this)">EXPORT REPORT</button>
 </div>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
@@ -192,6 +195,10 @@
             //trow.appendChild(td10);
 
             tbody.appendChild(trow);
+
+        
+            var node = document.getElementById('btnExport');
+            node.style.visibility = 'visible'; 
 
         }
 
